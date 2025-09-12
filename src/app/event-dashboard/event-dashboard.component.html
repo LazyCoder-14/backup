@@ -1,0 +1,72 @@
+<!--carousel-component-->
+
+<body>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="carousel-image-wrapper">
+          <img src="image2.jpg" class="d-block w-100" alt="Second slide">
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="carousel-image-wrapper">
+          <img src="baaghiposter.jpg" class="d-block w-100" alt="Fourth slide">
+        </div>
+      </div>
+    </div>
+
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <br />
+  <!-- Movie-style Event Cards -->
+  <h2>🎥 Now Trending</h2>
+  <div class="card-container">
+    <div *ngFor="let movie of movieList" class="movie-card" (click)="goToMovie(movie)">
+      <div class="poster-wrapper">
+        <img [src]="movie.PosterURL" alt="{{ movie.Name }}" class="poster" />
+      </div>
+      <div class="movie-details">
+        <h4 class="movie-title">{{ movie.Name }}</h4>
+        <p class="movie-meta">{{ movie.Category }} • {{ movie.Location }}</p>
+        <p class="movie-date">📅 {{ movie.Date | date:'MMM d, y' }}</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>🎉 Upcoming Events</h2>
+  <div class="card-container">
+    <div *ngFor="let event of upcomingEventList" class="event-card" (click)="goToEvent(event)">
+      <div class="poster-wrapper">
+        <img [src]="event.PosterURL" alt="{{ event.Name }}" class="poster" />
+      </div>
+      <div class="event-details">
+        <h4 class="event-title">{{ event.Name }}</h4>
+        <p class="event-meta">{{ event.Category }} • {{ event.Location }}</p>
+        <p class="event-date">📅 {{ event.Date | date:'MMM d, y' }}</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>🏅 Sports Events</h2>
+  <div class="card-container">
+    <div *ngFor="let sport of sportsList" class="sports-card" (click)="goToSports(sport)">
+      <div class="poster-wrapper">
+        <img [src]="sport.PosterURL" alt="{{ sport.Name }}" class="poster" />
+      </div>
+      <div class="sports-details">
+        <h4 class="sports-title">{{ sport.Name }}</h4>
+        <p class="sports-meta">{{ sport.Category }} • {{ sport.Location }}</p>
+        <p class="sports-date">🏟️ {{ sport.Date | date:'MMM d, y' }}</p>
+      </div>
+    </div>
+  </div>

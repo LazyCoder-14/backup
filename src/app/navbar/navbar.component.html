@@ -1,0 +1,44 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo" aria-label="Evontiq logo">
+      <!-- <span class="logo-icon">🎇</span> -->
+      <span class="logo-text">Evontiq</span>
+    </div>
+
+    <div class="nav-group">
+      <button routerLink="/dashboard" routerLinkActive="active" class="nav-btn">
+        <span class="nav-icon">🏠</span> Home
+      </button>
+      <button routerLink="/movies" routerLinkActive="active" class="nav-btn">
+        <span class="nav-icon">🎬</span> Movies
+      </button>
+      <button routerLink="/events" routerLinkActive="active" class="nav-btn">
+        <span class="nav-icon">🎉</span> Events
+      </button>
+      <button routerLink="/sports" routerLinkActive="active" class="nav-btn">
+        <span class="nav-icon">🏅</span> Sports
+      </button>
+    </div>
+
+    <div class="nav-actions">
+      <div class="nav-search">
+        <input type="text" placeholder="Search..." class="search-input" #searchBox />
+        <!-- <button class="search-btn" (click)="onSearch(searchBox)">🔍</button> -->
+      </div>
+      <button routerLink="/notifications" routerLinkActive="active" class="notify-btn" aria-label="Notifications">
+        🔔
+      </button>
+
+      <!-- Show when user is NOT logged in -->
+      <button *ngIf="!isUserLoggedIn()" class="sign-btn" (click)="goToLogin()">Sign In</button>
+
+      <!-- Show when user IS logged in -->
+      <div *ngIf="isUserLoggedIn()" class="logged-in-actions">
+        <button class="sign-btn" (click)="goToProfile()">
+          {{ currentUser?.name || 'Profile' }}
+        </button>
+        <button class="sign-btn logout-btn" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+</nav>

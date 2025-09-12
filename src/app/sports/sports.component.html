@@ -1,0 +1,58 @@
+<!-- Detailed View -->
+<div *ngIf="selectedSport" class="sport-details-container">
+  <div class="sport-header">
+    <img [src]="selectedSport.PosterURL" alt="{{ selectedSport.Name }}" class="sport-poster" />
+    <div class="sport-info">
+      <h1>{{ selectedSport.Name }}</h1>
+      <p class="tagline" *ngIf="selectedSport.Tagline">"{{ selectedSport.Tagline }}"</p>
+      <ul class="meta-list">
+        <li><strong>Category:</strong> {{ selectedSport.Category }}</li>
+        <li><strong>Location:</strong> {{ selectedSport.Location }}</li>
+        <li><strong>Date:</strong> {{ selectedSport.Date | date:'MMM d, y' }}</li>
+        <li *ngIf="selectedSport.Language"><strong>Language:</strong> {{ selectedSport.Language }}</li>
+        <li *ngIf="selectedSport.Format"><strong>Format:</strong> {{ selectedSport.Format }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="booking-section">
+    <div class="booking-details">
+      <div>
+        <h3>{{ selectedSport.Venue || 'Nehru Stadium, Coimbatore' }}</h3>
+        <p>Race Course Rd, Gopalapuram, Coimbatore, Tamil Nadu 641018</p>
+      </div>
+      <div class="booking-actions">
+        <button class="showtime-btn">
+          {{ selectedSport.Language || 'English' }} {{ selectedSport.Format || 'Live' }} - {{ selectedSport.Showtime ||
+          '6:00 PM' }}
+        </button>
+        <button class="book-btn" (click)="bookTickets(selectedSport)">
+          🎟️ Book Tickets
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Fallback Sports List -->
+<div *ngIf="!selectedSport" class="sports-page">
+  <h2>🏅 Sports</h2>
+  <div class="card-container">
+    <div *ngFor="let sport of sportsList" class="sports-card" (click)="goToDetails(sport)">
+      <div class="poster-wrapper">
+        <img [src]="sport.PosterURL" alt="{{ sport.Name }}" class="poster" />
+      </div>
+      <div class="sports-details">
+        <h4 class="sports-title">{{ sport.Name }}</h4>
+        <p class="sports-meta">{{ sport.Category }} • {{ sport.Location }}</p>
+        <p class="sports-date">🏟️ {{ sport.Date | date:'MMM d, y' }}</p>
+        <p class="sports-tagline" *ngIf="sport.Tagline">"{{ sport.Tagline }}"</p>
+        <div class="card-actions">
+          <button class="book-btn" (click)="bookTickets(sport); $event.stopPropagation()">
+            🎟️ Book Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,206 @@
+/* Detailed View Styling */
+.sport-details-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  color: black;
+}
+
+.sport-header {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.sport-poster {
+  width: 240px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.sport-info h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: black;
+  background-clip: text;
+}
+
+.tagline {
+  font-style: italic;
+  color: black;
+  margin-bottom: 16px;
+}
+
+.meta-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.meta-list li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.booking-section {
+  margin-top: 24px;
+}
+
+.booking-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.booking-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.showtime-btn,
+.book-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.showtime-btn {
+  background: linear-gradient(135deg, #00c9ff, #04eae6);
+  color: white;
+}
+
+.book-btn {
+  background: linear-gradient(135deg, #00c9ff, #04eae6);
+  color: white;
+}
+
+.book-btn:hover {
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 65, 108, 0.5);
+}
+
+.showtime-btn:hover,
+.book-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Sports page specific styles */
+.sports-page {
+  padding: 20px;
+}
+
+.sports-page h2 {
+  text-align: left;
+  font-weight: 100;
+  font-family: Arial;
+  padding-left: 25px;
+  margin-bottom: 20px;
+}
+
+/* Card container and sports card styles (matching dashboard) */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  padding: 0 25px;
+}
+
+.sports-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 16px;
+  width: 280px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.sports-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.poster-wrapper {
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.sports-card:hover .poster {
+  transform: scale(1.05);
+}
+
+.sports-details {
+  color: white;
+}
+
+.sports-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: white;
+}
+
+.sports-meta {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin: 4px 0;
+}
+
+.sports-date {
+  font-size: 0.7rem;
+  color: #aaa;
+  margin: 4px 0;
+}
+
+.sports-tagline {
+  font-size: 0.75rem;
+  color: #bbb;
+  font-style: italic;
+  margin: 8px 0;
+  line-height: 1.3;
+}
+
+.card-actions {
+  margin-top: 12px;
+}
+
+.book-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.book-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}

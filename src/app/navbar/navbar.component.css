@@ -1,0 +1,191 @@
+/* Navbar container */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(90deg, #02b4e6, #2600e6e7, #02b4e6);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  padding: 0.4rem 1.5rem;
+  /* Reduced vertical padding */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Flex layout */
+.nav-container {
+  max-width: 1280px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  /* Slightly reduced gap for compactness */
+}
+
+/* Logo styling */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  flex-shrink: 0;
+  margin-left: auto;
+  animation: pop 2s infinite ease-in-out;
+}
+
+/* Simple scale animation */
+@keyframes pop {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+
+
+
+/* Navigation group */
+.nav-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Navigation buttons */
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.07);
+  color: #f0f0f0;
+  border: none;
+  padding: 0.55rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-btn:hover {
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 65, 108, 0.5);
+}
+
+.nav-btn.active {
+  background: linear-gradient(to right, #ff6a00, #ee0979);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+/* Icon inside nav buttons */
+.nav-icon {
+  font-size: 1.1rem;
+}
+
+/* Action section */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Search bar */
+.nav-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-input {
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  width: 160px;
+  transition: width 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.search-input:focus {
+  outline: none;
+  width: 220px;
+}
+
+/* Search button */
+.search-btn {
+  background: linear-gradient(to right, #ff6a00, #ee0979);
+  color: #ffffff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.search-btn:hover {
+  background: linear-gradient(to right, #2a2a90, #5050c0);
+  box-shadow: 0 4px 10px rgba(28, 28, 132, 0.4);
+}
+
+/* Sign-in button */
+.sign-btn {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  font-weight: 500;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  margin-right: auto;
+}
+
+.sign-btn:hover {
+  background: linear-gradient(to right, #00e6ff, #3399ff);
+  box-shadow: 0 4px 10px rgba(0, 114, 255, 0.4);
+}
+
+.notify-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.notify-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Logged in actions styling */
+.logged-in-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.logout-btn {
+  background: linear-gradient(to right, #ff6b6b, #ee5a52) !important;
+  padding: 0.45rem 0.8rem !important;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(to right, #ff5252, #d32f2f) !important;
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.4);
+}

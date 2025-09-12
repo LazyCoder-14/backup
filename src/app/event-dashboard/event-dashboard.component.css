@@ -1,0 +1,279 @@
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+}
+
+/* Carousel container: locks height and prevents layout shift */
+h2 {
+  text-align: left;
+  font-weight: 100;
+  font-family: Arial;
+  padding-left: 25px;
+}
+
+#carouselExampleControls {
+  position: relative;
+  width: 100%;
+  max-height: 480px;
+  overflow: hidden;
+}
+
+/* Bootstrap's carousel-inner stays full height */
+.carousel-inner {
+  height: 100%;
+}
+
+/* Each carousel item fills the container */
+.carousel-item {
+  height: 100%;
+}
+
+/* Wrapper around each image to enforce cropping */
+.carousel-image-wrapper {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Image styling: fills space, crops excess */
+.carousel-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Optional: smooth slide transition override */
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Responsive tweak for smaller screens */
+@media (max-width: 768px) {
+  #carouselExampleControls {
+    max-height: 300px;
+  }
+
+  .carousel-image-wrapper {
+    height: 300px;
+  }
+}
+
+
+
+/*Movie Card*/
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.movie-card {
+  width: 190px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(255, 0, 90, 0.4);
+}
+
+.poster-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-details {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.movie-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-meta {
+  font-size: 0.75rem;
+  color: #ccc;
+}
+
+.movie-date {
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+/*Event Card*/
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.event-card {
+  width: 190px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(0, 255, 180, 0.4);
+}
+
+.poster-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.event-details {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.event-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-meta {
+  font-size: 0.75rem;
+  color: #ccc;
+}
+
+.event-date {
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+.sports-card {
+  width: 190px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.sports-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(38, 0, 255, 0.4);
+}
+
+.sports-details {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sports-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white;
+}
+
+.sports-meta {
+  font-size: 0.75rem;
+  color: #ccc;
+}
+
+.sports-date {
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+/* Filter indicator styles */
+.filter-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 25px;
+  margin: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-indicator h3 {
+  margin: 0;
+  font-weight: 600;
+  padding-left: 0;
+}
+
+.clear-filter-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.clear-filter-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}

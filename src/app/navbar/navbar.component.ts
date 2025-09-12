@@ -1,16 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserStateService, UserState } from './user-state-service.service';
+import { UserStateService, UserState } from '../user-state-service.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-navbar',
   standalone: false,
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.css',
 })
-export class AppComponent implements OnInit, OnDestroy {
-  title = 'Event-Management-System';
+export class NavbarComponent implements OnInit, OnDestroy {
   currentUser: UserState | null = null;
   private userSubscription: Subscription = new Subscription();
 
@@ -31,20 +30,16 @@ export class AppComponent implements OnInit, OnDestroy {
     this.userSubscription.unsubscribe();
   }
 
-  goToLoginPage(): void {
-    this.router.navigate(['/login']);
+  isUserLoggedIn(): boolean {
+    return this.currentUser?.isLoggedIn || false;
   }
 
-  isOnLoginPage(): boolean {
-    return this.router.url === '/login';
+  goToLogin(): void {
+    this.router.navigate(['/login']);
   }
 
   goToProfile(): void {
     this.router.navigate(['/profile']);
-  }
-
-  isUserLoggedIn(): boolean {
-    return this.currentUser?.isLoggedIn || false;
   }
 
   logout(): void {
