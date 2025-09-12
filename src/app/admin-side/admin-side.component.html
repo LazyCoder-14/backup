@@ -1,0 +1,26 @@
+<body>
+
+    <div class="button-container" *ngIf="bButton === true">
+
+        <br><br />
+        <div class="user-card">
+
+            <img src="" class="card-img">
+            <div class="card-footer">
+                <button class="btn btn-success" (click)="goToEventAdminPage()">Manage Events</button>
+            </div>
+        </div>
+
+        <div class="user-card">
+
+            <img src="" class="card-img">
+            <div class="card-footer">
+                <button class="btn btn-primary" (click)="goToUserAdminPage()"> Manage Users</button>
+            </div>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>
+
+
+</body>

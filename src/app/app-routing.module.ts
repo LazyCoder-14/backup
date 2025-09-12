@@ -7,6 +7,10 @@ import { EventDashboardComponent } from './event-dashboard/event-dashboard.compo
 import { MoviesComponent } from './movies/movies.component';
 import { EventsComponent } from './events/events.component';
 import { SportsComponent } from './sports/sports.component';
+import { AdminSideComponent } from './admin-side/admin-side.component';
+import { UserAdminComponent } from './user-admin/user-admin.component';
+import { EventAdminComponent } from './event-admin/event-admin.component';
+import { NotificationComponent } from './notification/notification.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -17,10 +21,13 @@ const routes: Routes = [
   { path: 'login', component: RegistrationComponent },
   { path: 'signin', component: RegistrationComponent },
   { path: 'profile', component: UserProfileComponent },
-  { path: 'notifications', component: BookingComponent }, // placeholder
+  { path: 'notifications', component: NotificationComponent }, // placeholder
   { path: 'movies', component: MoviesComponent },
   { path: 'events', component: EventsComponent },
   { path: 'sports', component: SportsComponent },
+  { path: 'admin_side', component: AdminSideComponent },
+  { path: 'user-admin', component: UserAdminComponent },
+  { path: 'event-admin', component: EventAdminComponent },
 ];
 
 @NgModule({

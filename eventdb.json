@@ -325,5 +325,42 @@
       "role": "admin",
       "isAdmin": true
     }
+  ],
+  "alerts": [
+    {
+      "id": "1",
+      "type": "success",
+      "message": "Event booked successfully !"
+    },
+    {
+      "id": "2",
+      "type": "warning",
+      "message": "Reminder : Your event starts in 1 hour."
+    },
+    {
+      "id": "3",
+      "type": "danger",
+      "message": "Event ticket cancelled !!"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Upcoming Event",
+      "content": "Concert is at 10 PM.",
+      "imageUrl": "p3.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Booking Status",
+      "content": "Details sent to your email.",
+      "imageUrl": "p4.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Set Reminders",
+      "content": "Set Up the reminder.",
+      "imageUrl": "b1.jpg"
+    }
   ]
 }

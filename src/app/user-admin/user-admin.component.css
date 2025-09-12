@@ -1,0 +1,74 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+.card {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.card-header {
+  font-size: 50px;
+  font-weight: 600;
+  background-color: black;
+}
+
+
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.btn {
+  min-width: 140px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 20px;
+
+}
+
+.d-flex.gap-3>.btn {
+  margin-right: 12px;
+}
+
+.table-wrapper {
+  animation: fadeIn 0.5s ease-in-out;
+  transition: all 0.3s ease;
+
+}
+
+.form-wrapper {
+  border: 1px solid #aca1a1;
+  border-radius: 12px;
+  padding: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease-in-out;
+  transition: all 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.table th {
+  border-radius: 10px;
+}
+
+.table td {
+  border-radius: 10px;
+}

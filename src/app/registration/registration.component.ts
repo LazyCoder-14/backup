@@ -143,7 +143,7 @@ export class RegistrationComponent implements OnInit {
           // localStorage.setItem('isAdmin', 'true');
           this.userStateService.setUserState(admin[0], true);
           alert('Admin login successful');
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/admin_side']);
           this.signInForm.reset();
           this.hideSignInPassword = true;
         } else {

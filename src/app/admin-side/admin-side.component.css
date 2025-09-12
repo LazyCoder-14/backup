@@ -1,0 +1,76 @@
+/* Card Container */
+.button-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+ 
+/* User Card */
+.user-card {
+  width: 300px;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+ 
+.user-card:hover {
+  transform: translateY(-10px);
+}
+ 
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+ 
+.card-footer {
+  padding: 16px;
+  border-top: 1px solid var(--card-border);
+  background-color: var(--footer-bg);
+  text-align: center;
+}
+ 
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 15px;
+  text-align: center;
+}
+ 
+/* Buttons */
+.btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: #fff;
+}
+ 
+.btn:active {
+  transform: translateY(2px);
+}
+ 
+.btn-admin {
+  background-color: var(--admin-color);
+}
+ 
+.btn-admin:hover {
+  background-color: var(--admin-hover-color);
+}
+ 
+.btn-user {
+  background-color: var(--user-color);
+}
+ 
+.btn-user:hover {
+  background-color: var(--user-hover-color);
+}

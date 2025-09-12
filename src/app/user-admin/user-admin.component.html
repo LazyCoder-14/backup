@@ -1,0 +1,150 @@
+<html><body><div class="container mt-4"  >
+  <br><br><div class="row" >
+    <div class="col-md-12" >
+      <div class="card mb-4" >
+
+        
+       
+
+        <div class="card-header bg-primary text-white" style="text-align: center;">User Details</div>
+        <div class="card-body" style="background-color:whitesmoke;">
+
+          <!-- Action Buttons -->
+          <div class="d-flex flex-wrap gap-3 mb-4" style="margin-left: 330px;">
+            <button class="btn btn-success" (click)="getDataFromService()">View Users</button>
+            <button class="btn btn-primary" (click)="displayAddForm()">Add Users</button>
+            <button class="btn btn-warning" (click)="toggleEditForm()">Edit Users</button>
+          </div>
+
+          <!-- Insert Form -->
+          <div *ngIf="bDisplayInsertRecordForm" class="form-wrapper fade-in mt-5" style="background-color: white;">
+            <h5 class="text-center mb-4" style="font-size: 30px;">Add User Details</h5>
+            <form [formGroup]="addOrEditForm" (submit)="AddDataInBackend()">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="userId" placeholder="User Id" formControlName="id" >
+                    <label for="userId">User Id</label>
+                  </div>
+                  <div *ngIf="id?.invalid && (id?.touched || id?.dirty)" class="text-danger mt-1">Id is required !</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="userName" placeholder="Name" formControlName="name">
+                    <label for="userName">Name</label>
+                  </div>
+                  <div *ngIf="name?.invalid && (name?.touched || name?.dirty)" class="text-danger mt-1">Name is required !</div>
+                  <div *ngIf="name?.errors?.['pattern']" class="text-danger mt-1">Only alphabets allowed !</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="userEmail" placeholder="Email" formControlName="email">
+                    <label for="userEmail">Email Id</label>
+                  </div>
+                  <div *ngIf="email?.invalid && (email?.touched || email?.dirty)" class="text-danger mt-1">Email is required !</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="number" class="form-control" id="userContact" placeholder="Contact Number" formControlName="contactNumber">
+                    <label for="userContact">Contact Number</label>
+                  </div>
+                  <div *ngIf="contactNumber?.invalid && (contactNumber?.touched || contactNumber?.dirty)" class="text-danger mt-1">Contact is required !</div>
+                  <div *ngIf="contactNumber?.errors?.['pattern']" class="text-danger mt-1">Must be a 10-digit number !</div>
+                </div>
+              </div>
+
+              <div class="text-center mt-4">
+                <button class="btn btn-info px-4" type="submit" [disabled]="addOrEditForm.invalid" style="margin-left: auto;margin-right: auto;">Add Details</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Edit Form -->
+          <div *ngIf="bDisplayEditForm" class="form-wrapper fade-in mt-5" style="background-color: white;">
+            <h5 class="text-center mb-4" style="font-size: 30px;">Update User Details</h5>
+            <form [formGroup]="addOrEditForm" (submit)="editDataInService()">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="editUserId" placeholder="User Id" formControlName="id">
+                    <label for="editUserId">User Id</label>
+                  </div>
+                  <div *ngIf="id?.invalid && (id?.touched || id?.dirty)" class="text-danger mt-1">Id is required !</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="editUserName" placeholder="Name" formControlName="name">
+                    <label for="editUserName">Name</label>
+                  </div>
+                  <div *ngIf="name?.invalid && (name?.touched || name?.dirty)" class="text-danger mt-1">Name is required !</div>
+                  <div *ngIf="name?.errors?.['pattern']" class="text-danger mt-1">Only alphabets allowed !</div> 
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="editUserEmail" placeholder="Email" formControlName="email">
+                    <label for="editUserEmail">Email Id</label>
+                  </div>
+                  <div *ngIf="email?.invalid && (email?.touched || email?.dirty)" class="text-danger mt-1">Email is required !</div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="number" class="form-control" id="editUserContact" placeholder="Contact Number" formControlName="contactNumber">
+                    <label for="editUserContact">Contact Number</label>
+                  </div>
+                  <div *ngIf="contactNumber?.invalid && (contactNumber?.touched || contactNumber?.dirty)" class="text-danger mt-1">Contact is required !</div>
+                  <div *ngIf="contactNumber?.errors?.['pattern']" class="text-danger mt-1">Must be a 10-digit number !</div>
+                </div>
+              </div>
+
+              <div class="text-center mt-4">
+                <button class="btn btn-info px-4" type="submit" [disabled]="addOrEditForm.invalid" style="margin-left: auto;margin-right: auto;">Update Details</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+   <div *ngIf="bDisplayUserTable" class=" table-wrapper mt-4" >
+    <input type="text" class="form-control w-50 mx-auto mb-3" placeholder="Search User Id" [(ngModel)]="searchUserId" 
+    (input)="filterUsersById()" style="border: 1px solid black;border-radius: 10px;" /> 
+
+  <div class="row" *ngIf="bDisplayUserTable"  >
+    <div class="col-12">
+      <table class="table table-hover table-bordered mt-4" >
+        <thead style="text-align: center;font-size: 20px;height: 5px;">
+          <tr>
+            <th>User Id</th>
+            <th>Name</th>
+            <th>Email Id</th>
+            <th>Contact Number</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody style="text-align: center;font-size: 17px;">
+          <tr *ngFor="let user of filteredUserList">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.contactNumber }}</td>
+            <td>
+              <button class="btn btn-outline-danger" (click)="deleteRecord(user.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> </div>
+
+</body></html>
+

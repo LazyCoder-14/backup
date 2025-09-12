@@ -1,0 +1,254 @@
+<html><body><div class="container mt-4"  >
+  <br><br><div class="row" >
+    <div class="col-md-12" >
+      <div class="card mb-4" >
+        <div class="card-header bg-primary text-white" style="text-align: center;">Event Details</div>
+        <div class="card-body" style="background-color:whitesmoke;">
+
+          <!-- Action Buttons -->
+          <div class="d-flex flex-wrap gap-3 mb-4" style="margin-left: 330px;">
+            <button class="btn btn-success" (click)="getDataFromService()">View Events</button>
+            <button class="btn btn-primary" (click)="displayAddForm()">Add Events</button>
+            <button class="btn btn-warning" (click)="toggleEditForm()">Edit Events</button>
+          </div>
+
+          <!-- Insert Form -->
+          <div *ngIf="bDisplayInsertRecordForm" class="form-wrapper fade-in mt-5" style="background-color: white;">
+            <h5 class="text-center mb-4" style="font-size: 30px;">Add Events Details</h5>
+            <form [formGroup]="addOrEditForm" (submit)="AddDataInBackend()">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="eventId" placeholder="Event Id" formControlName="id" >
+                    <label for="eventId">Event Id</label>
+                  </div>
+                 
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="eventName" placeholder="Name" formControlName="Name">
+                    <label for="eventName">Name</label>
+                  </div>
+                
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="Category" class="form-control" id="eventCategory" placeholder="Category" formControlName="Category">
+                    <label for="eventCategory">Category</label>
+                  </div>
+            
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="eventLocation" placeholder="Location" formControlName="Location">
+                    <label for="eventLocation">Location</label>
+                  </div></div>
+
+                  <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="time" class="form-control" id="eventShowtime" placeholder="Showtime" formControlName="Showtime">
+                    <label for="eventShowtime">Show Time</label>
+                  </div></div>
+
+                   <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="date" class="form-control" id="eventDate" placeholder="Date" formControlName="Date">
+                    <label for="eventDate">Date</label>
+
+                     </div></div>
+                    <div class="col-md-6">
+                     
+
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="eventType" placeholder="Type" formControlName="Type">
+                    <label for="eventType">Type</label>
+                  </div></div>
+                  
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="eventOrganizerID" placeholder="OrganizerID" formControlName="OrganizerID">
+                    <label for="eventOrganizerID">Organizer Id</label>
+                  </div></div>
+
+                
+                  <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="eventFormat" placeholder="Format" formControlName="Format">
+                    <label for="eventFormat">Format</label>
+                  </div></div>
+
+                  <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="eventLanguage" placeholder="Language" formControlName="Language">
+                    <label for="eventLanguage">Language</label>
+                  </div></div>
+
+                  <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="eventTagline" placeholder="Tagline" formControlName="Tagline">
+                    <label for="eventTagline">Tagline</label>
+
+                  </div></div>
+                  <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="eventPosterURL" placeholder="PosterURL" formControlName="PosterURL">
+                    <label for="eventPosterURL">PosterURL</label>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <div class="text-center mt-4">
+                <button class="btn btn-info px-4" type="submit" [disabled]="addOrEditForm.invalid" style="margin-left: auto;margin-right: auto;">Add Details</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Edit Form -->
+          <div *ngIf="bDisplayEditForm" class="form-wrapper fade-in mt-5" style="background-color: white;">
+            <h5 class="text-center mb-4" style="font-size: 30px;">Update Event Details</h5>
+            <form [formGroup]="addOrEditForm" (submit)="editDataInService()">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="editEventId" placeholder="Event Id" formControlName="id" >
+                    <label for="id">Event Id</label>
+                  </div>
+                 
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="editEventName" placeholder="Name" formControlName="Name">
+                    <label for="Name">Name</label>
+                  </div>
+                
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="editEventCategory" placeholder="Category" formControlName="Category">
+                    <label for="Category">Category</label>
+                  </div>
+                 
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="editEventLocation" placeholder="Location" formControlName="Location">
+                    <label for="Location">Location</label>
+                  </div></div>
+
+                  <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="time" class="form-control" id="editEventShowtime" placeholder="Showtime" formControlName="Showtime">
+                    <label for="Showtime">Show Time</label>
+                  </div></div>
+
+                  <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="date" class="form-control" id="editEventDate" placeholder="Date" formControlName="Date">
+                    <label for="Date">Date</label>
+                  </div></div>
+                  <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="editEventType" placeholder="Type" formControlName="Type">
+                    <label for="Type">Type</label>
+                  </div></div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="editEventOrganizerID" placeholder="OrganizerID" formControlName="OrganizerID">
+                    <label for="OrganizerID">Organizer Id</label>
+                  </div></div>
+
+                  <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="editEventFormat" placeholder="Format" formControlName="Format">
+                    <label for="Format">Format</label>
+                  </div></div>
+                  <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="editEventLanguage" placeholder="Language" formControlName="Language">
+                    <label for="Language">Language</label>
+                  </div></div>
+                  <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="editEventTagline" placeholder="Tagline" formControlName="Tagline">
+                    <label for="Tagline">Tagline</label>
+                  </div></div>
+                  <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="editEventPosterURL" placeholder="PosterURL" formControlName="PosterURL">
+                    <label for="PosterURL">PosterURL</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center mt-4">
+                <button class="btn btn-info px-4" type="submit" [disabled]="addOrEditForm.invalid" style="margin-left: auto;margin-right: auto;">Update Details</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+   <div *ngIf="bDisplayEventTable" class=" table-wrapper mt-4" >
+    
+    
+    <input type="text" class="form-control w-50 mx-auto mb-3" placeholder="Search" [(ngModel)]="searchQuery" (input)="filterEvents()" style="border: 1px solid black;border-radius: 10px;">
+
+      
+    
+</div>
+  <div class="row" *ngIf="bDisplayEventTable"  >
+    <div class="col-12">
+      <table class="table table-hover table-bordered mt-4" >
+        <thead style="text-align: center;font-size: 16px;height: 5px;">
+          <tr>
+            <th style="width: 15%;">Event Id</th>
+            <th style="width: 18%;">Name</th>
+            <th style="width: 7%;">Category</th>
+            <th style="width: 12%;">Location</th>
+            <th style="width: 5%;">Timing</th>
+            <th style="width: 19.5%;">Date</th>
+            <th style="width: 7%;">Type</th>
+            <th style="width: 22%;">Organizer Id</th>
+            <th style="width: 5%;">Format</th>
+            <th style="width: 5%;">Language</th>
+            <th style="width: 70%;">Tagline</th>
+            <th>Poster</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody style="text-align: center;font-size: 13.5px;height: 2px;">
+          <tr *ngFor="let event of filteredEventList">
+            <td>{{ event.id }}</td>
+            <td>{{ event.Name }}</td>
+            <td>{{ event.Category }}</td>
+            <td>{{ event.Location }}</td>
+            <td>{{event.Showtime }}</td>
+            <td>{{ event.Date }}</td>
+            <td>{{ event.Type }}</td>
+            <td>{{ event.OrganizerID }}</td>
+            <td>{{event.Format }}</td>
+            <td>{{ event.Language }}</td>
+            <td>{{event.Tagline }}</td>
+            <td><img [src]="event.PosterURL" alt="Poster" style="max-width: 100px;" /></td>
+            <td>
+              <button class="btn btn-outline-danger custom-delete-btn" (click)="deleteRecord(event.id)" >Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> 
+</body></html>
+
