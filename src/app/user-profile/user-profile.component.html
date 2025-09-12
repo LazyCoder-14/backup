@@ -1,0 +1,148 @@
+<div class="container">
+    <mat-card class="profile-card">
+        <!-- Header -->
+        <mat-card-header class="profile-header">
+            <div mat-card-avatar class="profile-avatar">
+                <mat-icon>person</mat-icon>
+            </div>
+            <mat-card-title>{{ currentUser?.name || 'Guest User' }}</mat-card-title>
+            <mat-card-subtitle>{{ currentUser?.userId }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <!-- Content -->
+        <mat-card-content>
+            <mat-tab-group [(selectedIndex)]="activeTab">
+                <!-- View Tab -->
+                <mat-tab label="Profile">
+                    <div class="tab-content">
+                        <mat-list>
+                            <!-- Email -->
+                            <mat-list-item>
+                                <mat-icon matListItemIcon>email</mat-icon>
+                                <div matListItemTitle>Email</div>
+                                <div matListItemLine>{{ currentUser?.email }}</div>
+                            </mat-list-item>
+
+                            <!-- Phone -->
+                            <mat-list-item>
+                                <mat-icon matListItemIcon>phone</mat-icon>
+                                <div matListItemTitle>Phone</div>
+                                <div matListItemLine>{{ currentUser?.contactNumber || 'Not provided' }}</div>
+                            </mat-list-item>
+
+                            <!-- Age -->
+                            <mat-list-item>
+                                <mat-icon matListItemIcon>cake</mat-icon>
+                                <div matListItemTitle>Age</div>
+                                <div matListItemLine>{{ currentUser?.age || 'Not provided' }}</div>
+                            </mat-list-item>
+
+                            <!-- Gender -->
+                            <mat-list-item>
+                                <mat-icon matListItemIcon>wc</mat-icon>
+                                <div matListItemTitle>Gender</div>
+                                <div matListItemLine>{{ currentUser?.gender || 'Not provided' }}</div>
+                            </mat-list-item>
+
+                            <!-- Address -->
+                            <mat-list-item>
+                                <mat-icon matListItemIcon>location_on</mat-icon>
+                                <div matListItemTitle>Address</div>
+                                <div matListItemLine>{{ currentUser?.address || 'Not provided' }}</div>
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+                </mat-tab>
+
+                <!-- Edit Tab -->
+                <mat-tab label="Edit">
+                    <div class="tab-content">
+                        <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Name</mat-label>
+                                <input matInput formControlName="name" required>
+                                <mat-error *ngIf="profileForm.get('name')?.hasError('required')">Name is
+                                    required</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Phone</mat-label>
+                                <input matInput formControlName="contactNumber" type="tel">
+                            </mat-form-field>
+
+                            <div class="form-row">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Age</mat-label>
+                                    <input matInput formControlName="age" type="number">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Gender</mat-label>
+                                    <mat-select formControlName="gender">
+                                        <mat-option value="Male">Male</mat-option>
+                                        <mat-option value="Female">Female</mat-option>
+                                        <mat-option value="Other">Other</mat-option>
+                                        <mat-option value="Prefer not to say">Prefer not to say</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Address</mat-label>
+                                <textarea matInput formControlName="address" rows="3"></textarea>
+                            </mat-form-field>
+
+                            <div class="form-actions">
+                                <button mat-raised-button color="primary" type="submit"
+                                    [disabled]="profileForm.invalid">
+                                    Save Changes
+                                </button>
+                                <button mat-button type="button" (click)="cancelEdit()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </mat-tab>
+
+                <!-- Password Tab -->
+                <mat-tab label="Password">
+                    <div class="tab-content">
+                        <form [formGroup]="passwordForm" (ngSubmit)="updatePassword()">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Current Password</mat-label>
+                                <input matInput [type]="showCurrentPassword ? 'text' : 'password'"
+                                    formControlName="currentPassword">
+                                <button mat-icon-button matSuffix (click)="toggleCurrentPassword()" type="button">
+                                    <mat-icon>{{showCurrentPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>New Password</mat-label>
+                                <input matInput [type]="showNewPassword ? 'text' : 'password'"
+                                    formControlName="newPassword">
+                                <button mat-icon-button matSuffix (click)="toggleNewPassword()" type="button">
+                                    <mat-icon>{{showNewPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Confirm Password</mat-label>
+                                <input matInput [type]="showConfirmPassword ? 'text' : 'password'"
+                                    formControlName="confirmPassword">
+                                <button mat-icon-button matSuffix (click)="toggleConfirmPassword()" type="button">
+                                    <mat-icon>{{showConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+
+                            <div class="form-actions">
+                                <button mat-raised-button color="warn" type="submit" [disabled]="passwordForm.invalid">
+                                    Update Password
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card-content>
+    </mat-card>
+</div>

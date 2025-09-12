@@ -1,0 +1,156 @@
+.glass-bg {
+    background: linear-gradient(135deg, #FF4B2B 0%, #FF416C 50%, #FF8E53 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0;
+    position: relative;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 3.5rem 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 40px rgba(255, 75, 43, 0.3);
+    max-width: 480px;
+    width: 85%;
+    text-align: center;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+    gap: 1.5rem;
+}
+
+
+.stat-item {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.8rem 1.2rem;
+    border-radius: 18px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    flex: 1;
+    transition: all 0.2s ease;
+}
+
+.glass-card h3 {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.stat-item h4 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stat-item small {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+
+.glass-card .fa-rocket {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.3));
+}
+
+.position-relative {
+    position: relative;
+}
+
+.mat-mdc-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+
+}
+
+.mat-mdc-form-field .mat-mdc-text-field-wrapper {
+    background-color: white;
+    border-radius: 1px;
+}
+
+.form-control-lg {
+    height: 3.45rem !important;
+    font-size: 1.125rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid rgb(96, 92, 92) !important;
+}
+
+.form-outline {
+    margin-bottom: 1rem;
+}
+
+
+.mat-mdc-form-field.mat-mdc-form-field-input-control {
+    height: 3rem;
+}
+
+
+
+@media (max-width: 768px) {
+    .glass-card {
+        width: 90%;
+        padding: 2.5rem 1.8rem;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .stat-item {
+        padding: 1.5rem 1rem;
+    }
+
+    .glass-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .stat-item h4 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .glass-card {
+        width: 95%;
+        padding: 2rem 1.5rem;
+    }
+
+    .glass-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .glass-card p {
+        font-size: 1rem;
+    }
+}

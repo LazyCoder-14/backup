@@ -1,0 +1,37 @@
+<!-- <h1>Event Management Sytem</h1> -->
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" routerLink="/home">
+                <i class="fas fa-calendar-alt me-2"></i>
+                Evontiq
+            </a>
+
+            <div class="navbar-nav ms-auto">
+                <!-- Show when user is NOT logged in -->
+                <button *ngIf="!isUserLoggedIn()" class="btn btn-outline-light" (click)="goToLoginPage()">
+                    <i class="fas fa-sign-in-alt me-2"></i>
+                    Login
+                </button>
+
+                <!-- Show when user IS logged in -->
+                <div *ngIf="isUserLoggedIn()" class="d-flex">
+                    <button class="btn btn-outline-light me-2" (click)="goToProfile()">
+                        <i class="fas fa-user me-2"></i>
+                        Profile
+                    </button>
+                    <button class="btn btn-outline-light" (click)="logout()">
+                        <i class="fas fa-sign-out-alt me-2"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <router-outlet></router-outlet>
+</main>

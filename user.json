@@ -1,0 +1,75 @@
+{
+  "user": [
+    {
+      "id": "9277",
+      "userId": "nikhil14",
+      "name": "Nikhil Singh Chauhan",
+      "email": "nikhil@gmail.com",
+      "contactNumber": "1234567890",
+      "password": "nikhil123"
+    },
+    {
+      "id": "3ec6",
+      "userId": "1234567hgfds",
+      "name": "asd",
+      "email": "12@gm",
+      "contactNumber": "9432123476",
+      "password": "12323213"
+    },
+    {
+      "id": "2a8f",
+      "userId": "nikhil14",
+      "name": "1823123123123",
+      "email": "nikhil56@gmail.com",
+      "contactNumber": "123123123123",
+      "password": "asdnsiadn23"
+    },
+    {
+      "id": "d8f9",
+      "userId": "123123",
+      "name": "asd",
+      "email": "nikhil69@gmail.com",
+      "contactNumber": "9432123476",
+      "password": "12345678"
+    },
+    {
+      "id": "b7ff",
+      "userId": "nikhil143",
+      "name": "Nikhil Singh Chauhan",
+      "email": "nikhil101@gmail.com",
+      "contactNumber": "1231231231",
+      "password": "Nikhil123"
+    },
+    {
+      "id": "995a",
+      "userId": "Nico14",
+      "name": "Nikhil Singh Chauhan",
+      "email": "nikhilchauhan791@gmail.com",
+      "contactNumber": "8700154558",
+      "password": "Nikhil@123",
+      "age": 20,
+      "address": "New Delhi - 110059",
+      "gender": "Male"
+    },
+    {
+      "id": "5190",
+      "userId": "nik101",
+      "name": "nikhil",
+      "email": "nikhi@gmail.com",
+      "contactNumber": "1234567890",
+      "password": "123456"
+    }
+  ],
+  "adminUser": [
+    {
+      "id": "admin001",
+      "userId": "admin",
+      "name": "Administrator",
+      "email": "admin@gmail.com",
+      "contactNumber": "9999999999",
+      "password": "admin",
+      "role": "admin",
+      "isAdmin": true
+    }
+  ]
+}
