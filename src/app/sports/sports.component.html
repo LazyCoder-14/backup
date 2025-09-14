@@ -29,8 +29,17 @@
         <button class="book-btn" (click)="bookTickets(selectedSport)">
           🎟️ Book Tickets
         </button>
+        <button class="rating-btn" (click)="rateEvent(selectedSport)">
+          ⭐ Rate
+        </button>
       </div>
     </div>
+  </div>
+
+  <!-- Display Comments Section -->
+  <div class="comments-section">
+    <h3>Sports Event Reviews & Comments</h3>
+    <app-display-comments [eventId]="selectedSport.EventID"></app-display-comments>
   </div>
 </div>
 

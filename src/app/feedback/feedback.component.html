@@ -1,0 +1,126 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="feedback.component.css">k
+  <title>feedback</title>
+</head>
+<body>
+  <div class="feedback-container" >
+  <form id="addFeedback" class="feedback-form" [formGroup]="addFeedback" (submit)="AddDataInBackend()">
+    <div class="form-group">
+      <label for="rating">Rating (1-5):</label>
+      <input type="number" id="rating" formControlName="rating" name="rating" min="1" max="5"  required />
+        <div *ngIf="rating?.invalid && (rating?.dirty||rating?.touched)">
+            <div *ngIf="rating?.errors?.['min']"><h6>"rating should between 1 to 5</h6></div>
+            <div *ngIf="rating?.errors?.['max']"><h6>"rating should between 1 to 5</h6></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="comments">Comment:</label>
+      <textarea id="comments" formControlName="comments" name="comments" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Submit Feedback</button>
+  </form>
+</div> -->
+<!-- <div class="feedback-table-container">
+  <button class="btn btn-info" (click)="getfeedbackFromTable()">Display</button> 
+    <table class="table table-hover table-bordered feedback-table">
+      <thead>
+        <th>Ratings</th>
+        <th>Comments</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let feed of feedbackLst">
+          <td>{{ feed.rating }}</td>
+          <td>{{ feed.comments }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+
+<!-- </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="feedback.component.css">
+  <title>Feedback</title>
+</head>
+
+<body>
+  <section class="fb-hero" aria-label="Event Feedback">
+    <div class="fb-hero-overlay" aria-hidden="true"></div>
+
+    <div class="fb-card">
+      <button class="fb-close-btn" aria-label="Close Feedback">✕</button>
+
+      <header class="fb-head">
+        <h1 class="fb-title">How are you feeling?</h1>
+        <h6>Your input is valuable in helping us 😊</h6>
+      </header>
+
+      <form class="fb-body" [formGroup]="addFeedback" (ngSubmit)="AddDataInBackend()">
+        <!-- BIG FACE -->
+        <div class="fb-face-wrap">
+          <div class="fb-face-circle" [ngClass]="{
+              'bg-verybad'  : ratingCtrl?.value === 1,
+              'bg-bad'      : ratingCtrl?.value === 2,
+              'bg-okay'     : ratingCtrl?.value === 3,
+              'bg-good'     : ratingCtrl?.value === 4,
+              'bg-excellent': ratingCtrl?.value === 5
+            }">
+            <span class="fb-big-face" [class.spin]="spinning > 0">
+              {{ faces[ratingCtrl?.value || 0] || '🙂' }}
+            </span>
+          </div>
+          <div class="fb-face-caption">
+            {{ captions[ratingCtrl?.value || 0] || 'Select your experience' }}
+          </div>
+        </div>
+
+        <!-- SMILEY SELECTOR -->
+        <div class="fb-smiley-row" role="radiogroup" aria-label="Smiley rating 1 to 5">
+          <button type="button" class="fb-smiley-btn" [class.active]="ratingCtrl?.value === 1"
+            (click)="onSmileyClick(1)">😠</button>
+          <button type="button" class="fb-smiley-btn" [class.active]="ratingCtrl?.value === 2"
+            (click)="onSmileyClick(2)">☹️</button>
+          <button type="button" class="fb-smiley-btn" [class.active]="ratingCtrl?.value === 3"
+            (click)="onSmileyClick(3)">😐</button>
+          <button type="button" class="fb-smiley-btn" [class.active]="ratingCtrl?.value === 4"
+            (click)="onSmileyClick(4)">🙂</button>
+          <button type="button" class="fb-smiley-btn" [class.active]="ratingCtrl?.value === 5"
+            (click)="onSmileyClick(5)">😄</button>
+        </div>
+
+        <!-- COMMENTS -->
+        <div class="fb-field">
+          <label for="comments" class="fb-label">Comments</label>
+          <textarea id="comments" class="fb-textarea" formControlName="comments"
+            placeholder="Tell us a bit more about your experience…" required></textarea>
+        </div>
+
+
+        <button type="submit" class="fb-btn submit-btn" style="background-color: #28a745; color: #fff;">Submit
+          Feedback</button>
+
+
+        <!-- ACTION BUTTONS -->
+        <!-- Close Button -->
+        <button type="button" class="fb-close-btn" aria-label="Close Feedback" (click)="onClose()">✕</button>
+
+        <!-- Cancel Button -->
+        <button type="button" class="fb-btn cancel" (click)="onCancel()">Cancel</button>
+
+      </form>
+    </div>
+  </section>
+</body>
+
+</html>

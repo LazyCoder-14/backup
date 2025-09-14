@@ -28,8 +28,17 @@
         <button class="book-btn" (click)="bookTickets(movie)">
           🎟️ Book Tickets
         </button>
+        <button class="rating-btn" (click)="rateEvent(movie)">
+          ⭐ Rate
+        </button>
       </div>
     </div>
+  </div>
+
+  <!-- Display Comments Section -->
+  <div class="comments-section">
+    <h3>Movie Reviews & Comments</h3>
+    <app-display-comments [eventId]="movie.EventID"></app-display-comments>
   </div>
 </div>
 

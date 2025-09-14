@@ -53,4 +53,14 @@ export class MoviesComponent implements OnInit {
       this.router.navigate(['/registration']);
     }
   }
+
+  rateEvent(movie: EventModel): void {
+    if (this.isLoggedIn) {
+      // Navigate to feedback/rating page with movie data
+      this.router.navigate(['/feedback'], { state: { event: movie } });
+    } else {
+      // Redirect to login page if not logged in
+      this.router.navigate(['/registration']);
+    }
+  }
 }

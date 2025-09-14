@@ -1,0 +1,214 @@
+/* --- Golden stars everywhere --- */
+.star,
+.star.sm {
+  color: #FFD700; /* golden */
+}
+
+/* --- Rating number NOT bold --- */
+.rating { font-weight: 400; }        /* normal weight */
+.rating-number { font-weight: 400; } /* ensure numbers aren't bold */
+
+/* --- Profile emoji avatar --- */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fff7ed; /* warm bg like Amazon review bubble */
+  border: 1px solid #f59e0b33; /* subtle amber border */
+}
+.emoji {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* --- Sentiment badges --- */
+.badge { 
+  font-size: .7rem; padding: 2px 8px; border-radius: 999px; width: fit-content; margin-top: 2px;
+  border: 1px solid transparent;
+}
+.badge-positive { color: #10b981; background: rgba(16,185,129,.12); border-color: rgba(16,185,129,.3); }
+.badge-negative { color: #ef4444; background: rgba(239,68,68,.12); border-color: rgba(239,68,68,.3); }
+.badge-neutral  { color: #6b7280; background: rgba(107,114,128,.12); border-color: rgba(107,114,128,.3); }
+
+/* --- Expandable comment (vertical) --- */
+.comment-wrap { position: relative; --collapsed-h: 4.8em; }
+.comment {
+  margin: 0;
+  max-height: var(--collapsed-h); /* collapsed height (~3 lines) */
+  overflow: hidden;
+  line-height: 1.6;
+  transition: max-height .25s ease;
+}
+.comment-wrap.expanded .comment { max-height: 1000px; } /* expand smoothly */
+.fade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 2.2rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.95));
+  pointer-events: none;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+/* --- "...more" link --- */
+.more-btn { color: #2563eb !important; text-decoration: none; }
+.more-btn:hover { text-decoration: underline; }
+
+/* --- Make carousel navigation clearly visible --- */
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next {
+  width: 56px;             /* bigger click target */
+  opacity: 1;              /* always visible */
+  z-index: 5;              /* above cards */
+}
+.control {
+  width: 48px;
+  height: 48px;
+  background: rgba(0,0,0,.45); /* dark pill behind the icon */
+  border-radius: 999px;
+}
+.control:hover { background: rgba(0,0,0,.6); }
+
+/* Use crisp white icons (no invert) so they pop on any background */
+.carousel .carousel-control-prev-icon,
+.carousel .carousel-control-next-icon {
+  filter: none;
+  background-size: 100% 100%;
+}
+
+
+.footer { align-items: center; }
+.ago { text-align: right; }
+
+/* === Equal-height cards inside Bootstrap carousel slides (no HTML changes needed) === */
+
+/* 1) Make each grid column a flex container so children (card) can stretch */
+.carousel-item .row > [class*="col-"] {
+  display: flex;
+}
+
+/* 2) Make the card fill the column height and stack its content vertically */
+.carousel-item .row > [class*="col-"] .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+/* 3) Make the card body fill remaining height so footer can sit at the bottom */
+.carousel-item .row > [class*="col-"] .card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+/* 4) Let the comment area grow; footer stays at the bottom */
+.carousel-item .row > [class*="col-"] .card .comment-wrap {
+  /* Optional if you use a wrap element; safe to include */
+  flex-grow: 1;
+}
+
+/* 5) Footer at the bottom; time-ago to the far right */
+.carousel-item .row > [class*="col-"] .card .footer {
+  margin-top: auto;
+}
+.carousel-item .row > [class*="col-"] .card .footer .ms-auto {
+  margin-left: auto !important; /* ensure right-end alignment */
+}
+
+/* 6) (Optional) Set a visual minimum so very short comments don't make tiny cards */
+.carousel-item .row > [class*="col-"] .card {
+  min-height: 220px; /* tweak as you like */
+}
+
+/* 7) Keep carousel nav arrows clearly visible (if you’re using the dark pill background) */
+.carousel.carousel-dark .carousel-control-prev,
+.carousel.carousel-dark .carousel-control-next {
+  opacity: 1;  /* always visible */
+}
+
+/* Center the prev/next controls vertically and make them look good */
+.controls-middle .carousel-control-prev,
+.controls-middle .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+  opacity: 1;                 /* always visible */
+  width: 56px;                /* larger click target */
+  height: 56px;
+  border-radius: 999px;       /* circle */
+  background: rgba(0, 0, 0, .45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;                 /* above cards */
+}
+
+.controls-middle .carousel-control-prev { left: 12px; }
+.controls-middle .carousel-control-next { right: 12px; }
+
+.controls-middle .carousel-control-prev:hover,
+.controls-middle .carousel-control-next:hover {
+  background: rgba(0, 0, 0, .6);
+}
+
+/* Make the default Bootstrap icons crisp & centered */
+.controls-middle .carousel-control-prev-icon,
+.controls-middle .carousel-control-next-icon {
+  filter: none;               /* don’t invert */
+  background-size: 100% 100%;
+  width: 22px;
+  height: 22px;
+}
+
+
+
+
+/* Keep the controls above any overflowing content */
+
+.rating-breakdown-container {
+  width: 50%;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+
+.break-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 80px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.break-bar {
+  background: #f1f1f1;
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  
+}
+
+.break-count {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+.bar-5 { background: linear-gradient(90deg, #16a34a, #22c55e); } 
+.bar-4 { background: linear-gradient(90deg, #22c55e, #84cc16); }
+.bar-3 { background: linear-gradient(90deg, #f59e0b, #facc15); } 
+.bar-2 { background: linear-gradient(90deg, #f97316, #fb7185); } 
+.bar-1 { background: linear-gradient(90deg, #ef4444, #f43f5e); } 
+

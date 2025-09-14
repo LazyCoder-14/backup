@@ -34,6 +34,8 @@ import { AdminSideComponent } from './admin-side/admin-side.component';
 import { EventAdminComponent } from './event-admin/event-admin.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
 import { ViewTicketsComponent } from './view-tickets/view-tickets.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { DisplayCommentsComponent } from './display-comments/display-comments.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { ViewTicketsComponent } from './view-tickets/view-tickets.component';
     EventAdminComponent,
     UserAdminComponent,
     ViewTicketsComponent,
+    FeedbackComponent,
+    DisplayCommentsComponent,
   ],
   imports: [
     BrowserModule,

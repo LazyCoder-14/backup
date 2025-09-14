@@ -52,6 +52,16 @@ export class SportsComponent implements OnInit {
     }
   }
 
+  rateEvent(sport: EventModel): void {
+    if (this.isLoggedIn) {
+      // Navigate to feedback/rating page with sport data
+      this.router.navigate(['/feedback'], { state: { event: sport } });
+    } else {
+      // Redirect to login page if not logged in
+      this.router.navigate(['/registration']);
+    }
+  }
+
   goToDetails(sport: EventModel): void {
     this.router.navigate(['/sports'], { state: { sport } });
   }

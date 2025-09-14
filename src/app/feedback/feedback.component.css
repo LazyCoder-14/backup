@@ -1,0 +1,177 @@
+/* HERO SECTION */
+.fb-hero {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.fb-hero-overlay {
+  display: none;
+}
+
+/* CARD */
+.fb-card {
+  position: relative;
+  z-index: 1;
+  width: min(500px, 92vw);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* CLOSE BUTTON */
+.fb-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* HEADER */
+.fb-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #0b1620;
+}
+
+.fb-head h6 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* BIG FACE */
+.fb-face-wrap {
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+}
+
+.fb-face-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18), inset 0 0 0 1px rgba(0,0,0,.06);
+  perspective: 900px;
+  transition: background 220ms ease;
+}
+
+.bg-verybad   { background: radial-gradient(ellipse at 30% 30%, #ffd6d6, #ff5252); }
+.bg-bad       { background: radial-gradient(ellipse at 30% 30%, #ffe1c9, #ff9800); }
+.bg-okay      { background: radial-gradient(ellipse at 30% 30%, #fff1c2, #ffc107); }
+.bg-good      { background: radial-gradient(ellipse at 30% 30%, #e2f1ff, #64b5f6); }
+.bg-excellent { background: radial-gradient(ellipse at 30% 30%, #e5f9e7, #43a047); }
+
+.fb-big-face {
+  font-size: 50px;
+  line-height: 1;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.fb-big-face.spin {
+  animation: fbFace3D .7s cubic-bezier(.2,.8,.2,1) both;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,.18));
+}
+
+@keyframes fbFace3D {
+  0%   { transform: rotateY(-180deg) scale(0.94); opacity: .9; }
+  100% { transform: rotateY(0deg)     scale(1.00); opacity: 1; }
+}
+
+.fb-face-caption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #0b1620;
+}
+
+/* SMILEY ROW */
+.fb-smiley-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.fb-smiley-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.fb-smiley-btn.active {
+  background-color: #ffeb3b;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+/* FORM FIELDS */
+.fb-field {
+  margin-top: 1rem;
+}
+
+.fb-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #0b1620;
+}
+
+.fb-textarea {
+  width: 100%;
+  height: 100px;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+}
+
+/* RADIO GROUP */
+.fb-radio-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* ACTION BUTTONS */
+.fb-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.fb-btn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.fb-btn.send {
+  background-color: #0078d4;
+  color: white;
+}
+
+.fb-btn.cancel {
+  background-color: #e0e0e0;
+  color: #333;
+  margin-left: 12px;
+  margin-top: 9px;
+}
+

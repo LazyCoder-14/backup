@@ -50,6 +50,16 @@ export class EventsComponent {
     }
   }
 
+  rateEvent(event: EventModel): void {
+    if (this.isLoggedIn) {
+      // Navigate to feedback/rating page with event data
+      this.router.navigate(['/feedback'], { state: { event } });
+    } else {
+      // Redirect to login page if not logged in
+      this.router.navigate(['/registration']);
+    }
+  }
+
   goToDetails(event: EventModel): void {
     this.router.navigate(['/events'], { state: { event } });
   }
