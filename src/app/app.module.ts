@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule, DatePipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotificationComponent } from './notification/notification.component';
@@ -32,6 +33,7 @@ import { UserStateService } from './user-state-service.service';
 import { AdminSideComponent } from './admin-side/admin-side.component';
 import { EventAdminComponent } from './event-admin/event-admin.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
+import { ViewTicketsComponent } from './view-tickets/view-tickets.component';
 
 @NgModule({
   declarations: [
@@ -50,9 +52,11 @@ import { UserAdminComponent } from './user-admin/user-admin.component';
     AdminSideComponent,
     EventAdminComponent,
     UserAdminComponent,
+    ViewTicketsComponent,
   ],
   imports: [
     BrowserModule,
+    // BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -68,7 +72,7 @@ import { UserAdminComponent } from './user-admin/user-admin.component';
     MatSelectModule,
     MatButtonModule,
   ],
-  providers: [EventService, LoginService, UserStateService],
+  providers: [EventService, LoginService, UserStateService, DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

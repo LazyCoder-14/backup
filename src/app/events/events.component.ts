@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { EventService } from '../event-service.service';
 import { EventModel } from '../Event';
 import { Router } from '@angular/router';
+import { UserStateService } from '../user-state-service.service';
 
 @Component({
   selector: 'app-events',
@@ -12,10 +13,20 @@ import { Router } from '@angular/router';
 export class EventsComponent {
   eventList: EventModel[] = [];
   selectedEvent: EventModel | undefined;
+  isLoggedIn: boolean = false;
 
-  constructor(private eventService: EventService, private router: Router) {
+  constructor(
+    private eventService: EventService,
+    private router: Router,
+    private userStateService: UserStateService
+  ) {
     const nav = this.router.getCurrentNavigation();
     this.selectedEvent = nav?.extras?.state?.['event'];
+
+    // Subscribe to user state to check login status
+    this.userStateService.currentUserState.subscribe((userState) => {
+      this.isLoggedIn = userState?.isLoggedIn || false;
+    });
   }
 
   ngOnInit(): void {
@@ -31,7 +42,12 @@ export class EventsComponent {
   }
 
   bookTickets(event: EventModel): void {
-    this.router.navigate(['/booking'], { state: { event } });
+    if (this.isLoggedIn) {
+      this.router.navigate(['/booking'], { state: { event } });
+    } else {
+      // Redirect to login page if not logged in
+      this.router.navigate(['/registration']);
+    }
   }
 
   goToDetails(event: EventModel): void {

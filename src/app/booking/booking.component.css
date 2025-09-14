@@ -1,0 +1,732 @@
+/* General & Typography */
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+:root {
+  --primary-color: #007bff;
+  --primary-hover-color: #0056b3;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --error-color: #dc3545;
+  --background-light: #f4f7f9;
+  --card-background: white;
+  --border-color: #ddd;
+  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.12);
+  --border-radius: 12px;
+  --font-family: 'Poppins', sans-serif;
+  --spacing-unit: 1rem;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-light);
+  color: #070707;
+  background-color: #eae4e4;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Page Headers & Breadcrumbs */
+.heading {
+  background-color: #2e1d77;
+  padding: 10px 20px;
+  width:100%;
+}
+
+
+
+.bigMain h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2.5rem;
+  color: #cecece;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+
+.bigMain h1:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  color:rgba(255, 0, 0, 0.656);
+}
+/* Main Layout */
+.mainOne {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 30px;
+}
+
+/* Left Section: Booking Information */
+.leftside {
+  width: 50%;
+  margin-top: 50px;
+  background: linear-gradient(135deg, #ffffff, #e6e6e6);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  padding: 30px;
+  color:white;
+  transition: transform 0.3s ease;
+}
+
+.leftside:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.leftside h2 {
+  font-size: 1.8em;
+  color: #060606;
+  text-align: center;
+  margin-bottom: 25px;
+  position: relative;
+ 
+}
+
+.leftside h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+.card-body h3 {
+  font-size: 1.5em;
+  color: #070707;
+  text-align: center;
+  margin-bottom: 20px;
+  
+}
+.custom-card{
+  background-color: rgb(255, 255, 255);
+  color:rgb(13, 13, 13)
+}
+.container p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 500;
+}
+html{
+  background-color: rgb(250, 249, 249);
+}
+.container input[type="number"] {
+  width: 70px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 10px;
+}
+
+/* --- Premium Button Styling --- */
+.custom-button,
+.btn,
+.custom-button.btn-outline-danger,
+.custom-button.btn-outline-success {
+  background-color: var(--primary-color);
+  color: rgb(196, 1, 1);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.408);
+}
+
+/* Hover effect for all buttons */
+.custom-button:hover,
+.btn:hover {
+  background-color: var(--primary-hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Specific styles for counter buttons */
+.container .btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5em;
+  min-width: unset;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Right Section: Payment Summary */
+.rightside {
+  flex: 1;
+  background: linear-gradient(135deg, #f8f8f8, #e3e8e8);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  padding: 30px;
+
+  transition: transform 0.3s ease;
+  color:rgb(2, 2, 2);
+  margin-top: 50px;
+}
+
+.rightside:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.rightside h3 {
+  font-size: 1.8em;
+  color: #0a0a0a;
+
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.rightside p {
+  margin: 5px 0;
+}
+
+.rightside .order-total {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: #050505;
+  margin-top: 15px;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.method-card {
+  flex: 1;
+  background-color: rgb(241, 236, 236);
+  border: 2px solid #101112;
+  border-radius: 10px;
+  padding: 20px 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.method-card:hover {
+  border-color: #0581f5;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.1);
+}
+
+.method-card.active {
+  border-color: var(--primary-color);
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 15px rgba(32, 105, 182, 0.25);
+}
+
+.method-card i {
+  font-size: 3em;
+  color: #137ee8;
+  margin-bottom: 10px;
+}
+
+.method-card.active i {
+  color: var(--primary-color);
+}
+
+.method-card span {
+  font-weight: 600;
+  color: #052fa5;
+}
+
+.form-section {
+  padding: 32px;
+  border-radius: 16px;
+  width: 80%;
+  margin: 40px auto;
+  background: rgba(252, 252, 252, 0.6); /* semi-transparent for glass effect */
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-section h3 {
+  text-align: center;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.form-container .custom-button {
+  width: 100%;
+  padding: 12px;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  border-radius: 8px;
+  border: none;
+  margin-top: 20px;
+}
+
+
+.form-container .custom-button:disabled {
+  background-color: #ffffff;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Popup and Confirmation */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+.popup-body p{
+  color:white;
+}
+
+.popup-content {
+  background-color: #0e0d0d;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 90%;
+  max-width: 450px;
+  animation: fadeInScale 0.3s ease-out;
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.popup-header h2 {
+  font-size: 2em;
+  color: #fdfafa;
+  margin: 0;
+}
+
+.success-icon {
+  font-size: 60px;
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+.booking-id-container {
+  background-color: #f0f8ff;
+  border: 1px dashed #b0c4de;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 8px;
+}
+
+.booking-id-container strong {
+  font-size: 1.2em;
+  color: #0b0707;
+  letter-spacing: 1.5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .mainOne {
+    flex-direction: column;
+    align-items: center;
+  }
+  .leftside, .rightside {
+    width: 95%;
+  }
+}
+/* Container for the entire form */
+.form-container {
+  width: 360px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #e4e2e7;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(207, 31, 31, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Each label/input pair */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+/* Row for Expiry + CVV */
+.form-row {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+/* Subgroup for each field inside the row */
+.form-subgroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+
+/* Input styling */
+input {
+  padding: 10px;
+  border: 1px solid #fcfcfc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fffefe;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #5c4dff;
+  outline: none;
+}
+
+/* Pay Now button */
+.custom-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #e5e4e4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #f80b0b;
+}
+
+/* Spinner icon */
+.fa-spinner {
+  margin-right: 8px;
+}
+/* Overall container */
+.form-container {
+  width: 350px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #f6f6f69b;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Payment method tabs */
+.payment-options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.payment-option {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  background-color: #e0d9ff;
+  border-radius: 8px;
+  margin: 0 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.payment-option.active {
+  background-color: #5c4dff;
+  color: rgb(156, 34, 34);
+}
+
+/* Form groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+/* Row for Expiry + CVV */
+.form-row {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.form-subgroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  
+}
+
+/* Labels and inputs */
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #020202;
+}
+
+input {
+  margin-left: 8px;
+  padding: 10px;
+  border: 1px solid #070505;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #ffffff;
+  width:450px;
+  transition: border-color 0.9s ease;
+}
+
+input:focus {
+  border-color: #3930a0;
+  outline: none;
+
+}
+
+/* Pay Now button */
+.custom-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #5c4dff;
+  color: rgb(23, 15, 15);
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #463dc4;
+}
+
+/* Spinner icon */
+.fa-spinner {
+  margin-right: 8px;
+}
+.breadcrumb {
+  background-color: #2e1d77; /* Soft lavender tone */
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #333;
+  border:2px solid #421fdf7d;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb a {
+  color: #5c4dff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+  color:#fb0bd363
+}
+
+.breadcrumb span {
+  color: #a91414;
+}
+.user-details-section {
+  background-color: #fffdfd;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.user-card {
+  background-color: #892828;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+.sizeOfIcon{
+  background-color: #f0f0f0;
+  color:rgb(25, 24, 24)
+}
+span{
+  color:rgb(16, 16, 16);
+}
+.custom-buttonX{ width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #ff8c00, #8b5ad8);
+ color: white;
+  border-radius: 8px;
+  border: none;
+  margin-top: 20px;
+}
+.custom-buttonApply{
+  width: 20%;
+  padding: 12px;
+  background:  #e4070e;
+  color: white;
+  border-radius: 3px;
+  border: none;
+ 
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.orderTotal{
+  color:rgb(232, 16, 13);
+  font-size: x-large;
+  text-align: center;
+}
+.PaymentSummary{
+font-size: larger;
+}
+
+ 
+    .carousel-container {
+      position: relative;
+      width: 95%;
+      max-width: 100%;
+      height: 200px;
+      overflow: hidden;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: auto;
+      margin-top: auto;
+   
+    }
+
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      color: #121212;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .carousel-slide:hover {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+    
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .indicator-dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 6px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .indicator-dot.active {
+      background-color: #fff;
+      transform: scale(1.2);
+    }
+
+    .slide-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .slide-text {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      padding: 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+      transition: background-color 0.3s ease;
+    }
+
+    .carousel-btn:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .prev-btn {
+      left: 10px;
+    }
+
+    .next-btn {
+      right: 10px;
+    }
+    .carouselSection{
+       background-color :#2e1d77;
+       height:40%;
+    }

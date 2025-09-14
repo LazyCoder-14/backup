@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventService } from '../event-service.service';
 import { EventModel } from '../Event';
+import { UserStateService } from '../user-state-service.service';
 
 @Component({
   selector: 'app-sports',
@@ -12,12 +13,22 @@ import { EventModel } from '../Event';
 export class SportsComponent implements OnInit {
   sportsList: EventModel[] = [];
   selectedSport: EventModel | undefined;
+  isLoggedIn: boolean = false;
 
-  constructor(private eventService: EventService, private router: Router) {
+  constructor(
+    private eventService: EventService,
+    private router: Router,
+    private userStateService: UserStateService
+  ) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation && navigation.extras && navigation.extras.state) {
       this.selectedSport = navigation.extras.state['sport'] as EventModel;
     }
+
+    // Subscribe to user state to check login status
+    this.userStateService.currentUserState.subscribe((userState) => {
+      this.isLoggedIn = userState?.isLoggedIn || false;
+    });
   }
 
   ngOnInit(): void {
@@ -33,7 +44,12 @@ export class SportsComponent implements OnInit {
   }
 
   bookTickets(sport: EventModel): void {
-    this.router.navigate(['/booking'], { state: { event: sport } });
+    if (this.isLoggedIn) {
+      this.router.navigate(['/booking'], { state: { event: sport } });
+    } else {
+      // Redirect to login page if not logged in
+      this.router.navigate(['/registration']);
+    }
   }
 
   goToDetails(sport: EventModel): void {

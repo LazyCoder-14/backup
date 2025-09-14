@@ -39,6 +39,11 @@
         <h4 class="movie-title">{{ movie.Name }}</h4>
         <p class="movie-meta">{{ movie.Category }} • {{ movie.Location }}</p>
         <p class="movie-date">📅 {{ movie.Date | date:'MMM d, y' }}</p>
+        <div class="card-actions">
+          <button class="book-btn" (click)="bookTickets(movie); $event.stopPropagation()">
+            🎟️ Book Now
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -53,6 +58,11 @@
         <h4 class="event-title">{{ event.Name }}</h4>
         <p class="event-meta">{{ event.Category }} • {{ event.Location }}</p>
         <p class="event-date">📅 {{ event.Date | date:'MMM d, y' }}</p>
+        <div class="card-actions">
+          <button class="book-btn" (click)="bookTickets(event); $event.stopPropagation()">
+            🎟️ Book Now
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -67,6 +77,11 @@
         <h4 class="sports-title">{{ sport.Name }}</h4>
         <p class="sports-meta">{{ sport.Category }} • {{ sport.Location }}</p>
         <p class="sports-date">🏟️ {{ sport.Date | date:'MMM d, y' }}</p>
+        <div class="card-actions">
+          <button class="book-btn" (click)="bookTickets(sport); $event.stopPropagation()">
+            🎟️ Book Now
+          </button>
+        </div>
       </div>
     </div>
   </div>

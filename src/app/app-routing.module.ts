@@ -11,6 +11,7 @@ import { AdminSideComponent } from './admin-side/admin-side.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
 import { EventAdminComponent } from './event-admin/event-admin.component';
 import { NotificationComponent } from './notification/notification.component';
+import { ViewTicketsComponent } from './view-tickets/view-tickets.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'admin_side', component: AdminSideComponent },
   { path: 'user-admin', component: UserAdminComponent },
   { path: 'event-admin', component: EventAdminComponent },
+  { path: 'viewTickets', component: ViewTicketsComponent },
 ];
 
 @NgModule({

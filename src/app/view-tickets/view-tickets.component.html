@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Your Ticket History</h2>
+
+  <div *ngIf="userBookings.length === 0" class="no-bookings">
+    <p>No bookings found for {{ userEmail }}.</p>
+    <button (click)="goToHomePage()">Book Now</button>
+  </div>
+
+  <div *ngFor="let booking of userBookings" class="booking-card">
+    <h3>{{ booking.eventName }}</h3>
+    <p><strong>Booking ID:</strong> {{ booking.bookingId }}</p>
+    <p><strong>Tickets Booked:</strong> {{ booking.ticketCount }}</p>
+    <p><strong>User:</strong> {{ booking.userName }} </p>
+    <p><strong>Date Of Booking:</strong> {{ booking.bookingDate}} </p>
+    <p><strong>Status:</strong> {{ booking.paymentStatus }} </p>
+    <button class="cancel-btn" [disabled]="booking.paymentStatus==='cancelled'"
+      (click)="cancelBooking(booking.bookingId)">
+      Cancel Booking
+    </button> &nbsp; &nbsp;&nbsp;&nbsp;<button (click)="goToHomePage()">Go To Home</button>
+  </div>

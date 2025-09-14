@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventModel } from '../Event';
 import { EventService } from '../event-service.service';
+import { UserStateService } from '../user-state-service.service';
 
 @Component({
   selector: 'app-movies',
@@ -13,12 +14,22 @@ export class MoviesComponent implements OnInit {
   movieData: EventModel | undefined;
   allMovies: EventModel[] = [];
   filteredMovies: EventModel[] = [];
+  isLoggedIn: boolean = false;
 
-  constructor(private router: Router, private eventService: EventService) {
+  constructor(
+    private router: Router,
+    private eventService: EventService,
+    private userStateService: UserStateService
+  ) {
     const nav = this.router.getCurrentNavigation();
     if (nav?.extras?.state) {
       this.movieData = nav.extras.state['movie'];
     }
+
+    // Subscribe to user state to check login status
+    this.userStateService.currentUserState.subscribe((userState) => {
+      this.isLoggedIn = userState?.isLoggedIn || false;
+    });
   }
 
   ngOnInit(): void {
@@ -35,6 +46,11 @@ export class MoviesComponent implements OnInit {
   }
 
   bookTickets(movie: EventModel): void {
-    this.router.navigate(['/booking'], { state: { event: movie } });
+    if (this.isLoggedIn) {
+      this.router.navigate(['/booking'], { state: { event: movie } });
+    } else {
+      // Redirect to login page if not logged in
+      this.router.navigate(['/registration']);
+    }
   }
 }

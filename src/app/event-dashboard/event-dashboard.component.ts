@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from '../event-service.service';
 import { EventModel } from '../Event';
 import { Router } from '@angular/router';
+import { UserStateService } from '../user-state-service.service';
 
 @Component({
   selector: 'app-event-dashboard',
@@ -13,8 +14,18 @@ export class EventDashboardComponent implements OnInit {
   movieList: EventModel[] = [];
   upcomingEventList: EventModel[] = [];
   sportsList: EventModel[] = [];
+  isLoggedIn: boolean = false;
 
-  constructor(private eventService: EventService, private router: Router) {}
+  constructor(
+    private eventService: EventService,
+    private router: Router,
+    private userStateService: UserStateService
+  ) {
+    // Subscribe to user state to check login status
+    this.userStateService.currentUserState.subscribe((userState) => {
+      this.isLoggedIn = userState?.isLoggedIn || false;
+    });
+  }
 
   ngOnInit(): void {
     this.eventService.getAllEvents().subscribe({
@@ -47,5 +58,14 @@ export class EventDashboardComponent implements OnInit {
 
   goToSports(event: EventModel): void {
     this.router.navigate(['/sports'], { state: { sport: event } });
+  }
+
+  bookTickets(event: EventModel): void {
+    if (this.isLoggedIn) {
+      this.router.navigate(['/booking'], { state: { event } });
+    } else {
+      // Redirect to login page if not logged in
+      this.router.navigate(['/registration']);
+    }
   }
 }

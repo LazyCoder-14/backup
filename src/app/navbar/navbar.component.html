@@ -34,8 +34,12 @@
 
       <!-- Show when user IS logged in -->
       <div *ngIf="isUserLoggedIn()" class="logged-in-actions">
-        <button class="sign-btn" (click)="goToProfile()">
-          {{ currentUser?.name || 'Profile' }}
+        <button routerLink="/viewTickets" routerLinkActive="active" class="tickets-btn" aria-label="My Tickets"
+          [title]="'View My Tickets'">
+          <span class="nav-icon">🎫</span> Tickets
+        </button>
+        <button class="sign-btn user-profile-btn" (click)="goToProfile()" [title]="currentUser?.name || 'Profile'">
+          <span class="nav-icon">👤</span>
         </button>
         <button class="sign-btn logout-btn" (click)="logout()">Logout</button>
       </div>

@@ -12,7 +12,8 @@
       "Tagline": "A darker spirit, a bloodier mission. This time it is not the same!",
       "Language": "Hindi, Tamil",
       "Format": "2D",
-      "Showtime": "11:05 PM"
+      "Showtime": "11:05 PM",
+      "id": "d2bf"
     },
     {
       "EventID": 202,
@@ -26,7 +27,8 @@
       "Tagline": "Rebel returns with vengeance.",
       "Language": "Hindi",
       "Format": "2D",
-      "Showtime": "12:00 PM"
+      "Showtime": "12:00 PM",
+      "id": "6a5f"
     },
     {
       "EventID": 203,
@@ -40,7 +42,8 @@
       "Tagline": "History that was never told.",
       "Language": "Bengali, Hindi",
       "Format": "2D",
-      "Showtime": "2:30 PM"
+      "Showtime": "2:30 PM",
+      "id": "a3df"
     },
     {
       "EventID": 204,
@@ -54,7 +57,8 @@
       "Tagline": "The porter who carried justice.",
       "Language": "Hindi",
       "Format": "2D",
-      "Showtime": "4:00 PM"
+      "Showtime": "4:00 PM",
+      "id": "eaac"
     },
     {
       "EventID": 205,
@@ -68,7 +72,8 @@
       "Tagline": "Enemies evolve. So does war.",
       "Language": "Hindi",
       "Format": "IMAX",
-      "Showtime": "6:45 PM"
+      "Showtime": "6:45 PM",
+      "id": "154b"
     },
     {
       "EventID": 206,
@@ -82,7 +87,8 @@
       "Tagline": "The blade that cuts through demons.",
       "Language": "Japanese, English",
       "Format": "Anime 2D",
-      "Showtime": "9:00 PM"
+      "Showtime": "9:00 PM",
+      "id": "6cc3"
     },
     {
       "EventID": 207,
@@ -96,7 +102,8 @@
       "Tagline": "Feel every note.",
       "Language": "Hindi",
       "Format": "Live",
-      "Showtime": "7:00 PM"
+      "Showtime": "7:00 PM",
+      "id": "98a8"
     },
     {
       "EventID": 208,
@@ -110,7 +117,8 @@
       "Tagline": "Innovate. Inspire. Impact.",
       "Language": "English",
       "Format": "Panel & Showcase",
-      "Showtime": "10:00 AM"
+      "Showtime": "10:00 AM",
+      "id": "171c"
     },
     {
       "EventID": 209,
@@ -124,7 +132,8 @@
       "Tagline": "Laugh out loud with Samay.",
       "Language": "Hindi, English",
       "Format": "Live",
-      "Showtime": "10:00 AM"
+      "Showtime": "10:00 AM",
+      "id": "d6c5"
     },
     {
       "EventID": 210,
@@ -138,7 +147,8 @@
       "Tagline": "Experience the madness of Rambo.",
       "Language": "Hindi",
       "Format": "Live",
-      "Showtime": "10:00 AM"
+      "Showtime": "10:00 AM",
+      "id": "90ce"
     },
     {
       "EventID": 211,
@@ -152,7 +162,8 @@
       "Tagline": "An evening of unfiltered comedy.",
       "Language": "Hindi",
       "Format": "Live",
-      "Showtime": "10:00 AM"
+      "Showtime": "10:00 AM",
+      "id": "aa1c"
     },
     {
       "EventID": 212,
@@ -166,7 +177,8 @@
       "Tagline": "Dance to the beats of the world.",
       "Language": "Hindi",
       "Format": "Live",
-      "Showtime": "10:00 AM"
+      "Showtime": "10:00 AM",
+      "id": "1437"
     },
     {
       "EventID": 301,
@@ -180,7 +192,8 @@
       "Tagline": "Clash of Titans on the mat.",
       "Language": "Multilingual",
       "Format": "Live",
-      "Showtime": "6:00 PM"
+      "Showtime": "6:00 PM",
+      "id": "ad00"
     },
     {
       "EventID": 302,
@@ -194,7 +207,8 @@
       "Tagline": "The ultimate rivalry.",
       "Language": "English, Hindi",
       "Format": "Stadium",
-      "Showtime": "7:30 PM"
+      "Showtime": "7:30 PM",
+      "id": "b324"
     },
     {
       "EventID": 303,
@@ -208,7 +222,8 @@
       "Tagline": "Run for a healthier tomorrow.",
       "Language": "English, Hindi",
       "Format": "Outdoor",
-      "Showtime": "7:30 PM"
+      "Showtime": "7:30 PM",
+      "id": "d2e3"
     },
     {
       "EventID": 304,
@@ -222,7 +237,8 @@
       "Tagline": "Aim. Fire. Win.",
       "Language": "English, Hindi",
       "Format": "Outdoor",
-      "Showtime": "7:30 PM"
+      "Showtime": "7:30 PM",
+      "id": "1c0f"
     },
     {
       "EventID": 305,
@@ -236,7 +252,8 @@
       "Tagline": "Mind over matter.",
       "Language": "English, Hindi",
       "Format": "Indoor",
-      "Showtime": "7:30 PM"
+      "Showtime": "7:30 PM",
+      "id": "529a"
     },
     {
       "EventID": 306,
@@ -250,7 +267,8 @@
       "Tagline": "Swing to win.",
       "Language": "English, Hindi",
       "Format": "Outdoor",
-      "Showtime": "7:30 PM"
+      "Showtime": "7:30 PM",
+      "id": "f7dd"
     }
   ],
   "user": [
@@ -361,6 +379,379 @@
       "title": "Set Reminders",
       "content": "Set Up the reminder.",
       "imageUrl": "b1.jpg"
+    }
+  ],
+  "Ticket": [
+    {
+      "TicketID": 1,
+      "id": "1",
+      "userName": "John Doe",
+      "userEmail": "john@example.com",
+      "EventID": 1,
+      "EventName": "Concert",
+      "TotalTickets": 100,
+      "image": "C:/Evontiq/Event-Management-System/public/vash.jpg",
+      "BookedTickets": 34,
+      "Price": 2000,
+      "Coupons": [
+        {
+          "code": "SAVE50",
+          "discount": 500
+        },
+        {
+          "code": "WELCOME10",
+          "discount": 100
+        }
+      ],
+      "Bookings": [
+        {
+          "userName": "test",
+          "ticketCount": 1,
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "f957b863-08bc-43c5-89fc-9783c9a2f7f4",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "cd0fb1bc-7a29-40dd-a447-1fabb255a8a8",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "00f83902-f59c-4c36-b528-ba9fb2e52322",
+          "userName": "Nikhil",
+          "ticketCount": 4,
+          "paymentStatus": "Pending"
+        },
+        {
+          "bookingId": "0362156a-aa49-4123-9907-42557ea08aba",
+          "userName": "Nikhil",
+          "ticketCount": 1,
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "d1b85a50-c656-4cf2-ac0d-89e2b6b27988",
+          "userName": "Nikhil",
+          "ticketCount": 1,
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "730dfda2-2cf8-4f17-8f21-2d752c9d638c",
+          "userName": "Kaartikeya",
+          "ticketCount": 1,
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "b2926a65-bcd9-4635-a0e8-a438f77e0617",
+          "userName": "Kartik",
+          "ticketCount": 1,
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "a3451797-1d50-4a0d-a239-be9e54f5ac39",
+          "userName": "Nikil",
+          "ticketCount": 1,
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "2080d62e-ec5c-46f0-a4ee-bf9b8e5e37ba",
+          "userName": "Nikhil Chauhan",
+          "ticketCount": 2,
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "450be779-0877-4b5b-9d64-71f2f99c1a32",
+          "userName": "Anshul",
+          "ticketCount": 3,
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "aef68c20-f9b1-486b-bc04-e74ee4cb6738",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "bookingDate": "2025-09-10T05:31:23.829Z",
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "f895cb32-e2c9-41eb-bfe9-2c047d845ed0",
+          "userName": "Vidhanshu",
+          "ticketCount": 2,
+          "bookingDate": "2025-09-10T05:37:10.569Z",
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "773d0201-189a-4020-971c-0aa4102c392f",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "bookingDate": "2025-09-10T05:42:14.347Z",
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "bf7a7c82-be80-41f3-ac09-9ad0852b752e",
+          "userName": "Vidhanshu",
+          "ticketCount": 80,
+          "bookingDate": "2025-09-10T05:44:34.648Z",
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "5fdddbd3-61f3-42a7-936a-43caf0865b98",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "bookingDate": "2025-09-10T08:58:14.917Z",
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "6caa5b61-c4e9-4278-95d4-9a82c13e701e",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "bookingDate": "2025-09-10T08:59:00.571Z",
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "31a22976-956c-40d5-a6de-d75040fd55d8",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "bookingDate": "2025-09-10T09:01:14.264Z",
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "318fe6df-d867-4fc9-a8fe-06e1b6ed84ad",
+          "userName": "Vidhanshu",
+          "ticketCount": 4,
+          "bookingDate": "2025-09-10T09:02:36.078Z",
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "97ee84cb-64fc-47d9-a66c-709d1c6c5822",
+          "userName": "Vidhanshu",
+          "ticketCount": 12,
+          "bookingDate": "2025-09-10T09:03:17.810Z",
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "4f76ca82-abf0-44c8-a6af-554da2667fe7",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "bookingDate": "2025-09-10T15:40:05.849Z",
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "3299d61d-7a0f-444d-beda-15cc99990c65",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "bookingDate": "2025-09-10T15:49:31.055Z",
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "de0d9072-72fa-4ea3-8b62-69561453bd21",
+          "userName": "Vidhanshu",
+          "ticketCount": 3,
+          "bookingDate": "2025-09-10T17:44:18.911Z",
+          "paymentStatus": "cancelled"
+        },
+        {
+          "bookingId": "8798947f-3de9-41b6-a0d0-0fd893b75ec5",
+          "userName": "Vidhanshu",
+          "ticketCount": 2,
+          "bookingDate": "2025-09-10T19:13:46.782Z",
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "d4a00ea5-bf07-4e2c-8ac3-cd963f76782b",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "bookingDate": "2025-09-10T19:26:16.312Z",
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "7d8e50a3-f42f-4cea-8313-375cf6f9a602",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "bookingDate": "2025-09-10T19:27:05.036Z",
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "580e17e5-7b2d-457d-9cd2-72c16725cb95",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "bookingDate": "2025-09-10T19:29:07.268Z",
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "3e6cbfc4-cf79-4015-9d8d-a71e04e08277",
+          "userName": "Vidhanshu",
+          "ticketCount": 1,
+          "bookingDate": "2025-09-10T19:29:24.270Z",
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "c4f3da27-f640-4e9b-9795-92ec54c05700",
+          "userName": "asa",
+          "ticketCount": 1,
+          "bookingDate": "2025-09-13T14:44:59.665Z",
+          "paymentStatus": "Success"
+        },
+        {
+          "bookingId": "EVT-349480-4461",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "The Bengal Files",
+          "eventId": "203",
+          "ticketCount": 1,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-13T15:12:29.480Z",
+          "dateOfBooking": "2025-09-13T15:12:29.480Z"
+        },
+        {
+          "bookingId": "EVT-020591-4354",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "The Bengal Files",
+          "eventId": "203",
+          "ticketCount": 1,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-13T15:23:40.591Z",
+          "dateOfBooking": "2025-09-13T15:23:40.592Z"
+        },
+        {
+          "bookingId": "EVT-263542-6799",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "The Bengal Files",
+          "eventId": "203",
+          "ticketCount": 2,
+          "ticketPrice": 2000,
+          "finalPrice": 1500,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-13T15:27:43.542Z",
+          "dateOfBooking": "2025-09-13T15:27:43.542Z"
+        },
+        {
+          "bookingId": "EVT-289409-8890",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "The Bengal Files",
+          "eventId": "203",
+          "ticketCount": 2,
+          "ticketPrice": 2000,
+          "finalPrice": 3000,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-13T15:28:09.409Z",
+          "dateOfBooking": "2025-09-13T15:28:09.409Z"
+        },
+        {
+          "bookingId": "EVT-580335-3945",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "Arijit Singh Live",
+          "eventId": "207",
+          "ticketCount": 5,
+          "ticketPrice": 2000,
+          "finalPrice": 7500,
+          "paymentStatus": "cancelled",
+          "bookingDate": "2025-09-13T15:33:00.335Z",
+          "dateOfBooking": "2025-09-13T15:33:00.335Z"
+        },
+        {
+          "bookingId": "EVT-701715-5900",
+          "userName": "qwe",
+          "userEmail": "",
+          "eventName": "The Bengal Files",
+          "eventId": "203",
+          "ticketCount": 1,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-13T15:35:01.715Z",
+          "dateOfBooking": "2025-09-13T15:35:01.715Z"
+        },
+        {
+          "bookingId": "EVT-347471-3511",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "DEMON SLAYER KIMETS",
+          "eventId": "206",
+          "ticketCount": 2,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-13T16:02:27.471Z",
+          "dateOfBooking": "2025-09-13T16:02:27.471Z"
+        },
+        {
+          "bookingId": "EVT-435639-7079",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "COOLIE",
+          "eventId": "204",
+          "ticketCount": 1,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-13T16:03:55.640Z",
+          "dateOfBooking": "2025-09-13T16:03:55.640Z"
+        },
+        {
+          "bookingId": "EVT-657253-3893",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "War 2",
+          "eventId": "205",
+          "ticketCount": 1,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-13T16:07:37.253Z",
+          "dateOfBooking": "2025-09-13T16:07:37.253Z"
+        },
+        {
+          "bookingId": "EVT-425895-3643",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "COOLIE",
+          "eventId": "204",
+          "ticketCount": 3,
+          "ticketPrice": 2000,
+          "finalPrice": 4500,
+          "paymentStatus": "cancelled",
+          "bookingDate": "2025-09-13T21:37:05.895Z",
+          "dateOfBooking": "2025-09-13T21:37:05.896Z"
+        },
+        {
+          "bookingId": "EVT-698443-4457",
+          "userName": "qwe",
+          "userEmail": "",
+          "eventName": "The Bengal Files",
+          "eventId": "203",
+          "ticketCount": 1,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-13T21:41:38.443Z",
+          "dateOfBooking": "2025-09-13T21:41:38.443Z"
+        },
+        {
+          "bookingId": "EVT-836624-5342",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "Samay Raina - Still Live & Unfiltered",
+          "eventId": "209",
+          "ticketCount": 2,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-14T08:17:16.624Z",
+          "dateOfBooking": "2025-09-14T08:17:16.625Z"
+        }
+      ]
     }
   ]
 }

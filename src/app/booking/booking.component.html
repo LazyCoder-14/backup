@@ -1,53 +1,263 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Font Awesome for icons -->
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evontiq</title>
-  <Link rel="stylesheet" href="booking.component.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
+
+
+
+
+
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+  <div class="carouselSection">
+    <div class="carousel-container">
+      <div #carouselTrack class="carousel-track">
+        <!-- Slides are rendered dynamically with @for loop -->
+        @for (slide of slides(); track $index) {
+        <div class="carousel-slide" [ngStyle]="{'background': slide.background}">
+          <div>
+            <h3 class="slide-title">{{ slide.title }}</h3>
+            <p class="slide-text">{{ slide.description }}</p>
+          </div>
+        </div>
+        }
+      </div>
+
+      <button class="carousel-btn prev-btn" (click)="moveToPrevSlide()">
+        &#10094;
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" routerLinkActive="active" routerLink="/home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+      <button class="carousel-btn next-btn" (click)="moveToNextSlide()">
+        &#10095;
+      </button>
+    </div>
+  </div>
+  <!-- Carousel Indicators -->
+  <!-- <div class="carousel-indicators">
+      @for (slide of slides(); track $index) {
+        <div class="indicator-dot" 
+             [class.active]="currentSlideIndex() === $index" 
+             (click)="goToSlide($index)">
+        </div>
+      }
+    </div>
+ -->
+
+
+
+
+
+  <!-- Main Title -->
+  <!-- <div class="bigMain">
+  <h1 class="hover-text">Book Ticket</h1>
+</div> -->
+
+  <!-- Booking Section -->
+  <div class="mainOne">
+    <div class="leftside">
+      <h2>Booking Information Section</h2>
+      <hr>
+
+      <div class="card custom-card">
+        <div class="card-body">
+          <h3>Name of Event: {{ eventName || 'Event Name' }}</h3>
+          <hr>
+
+          <div class="container">
+            <p>Number of Tickets:
+              <button class="btn btn-outline-danger custom-button" (click)="decrement()">-</button>
+              <input type="number" [(ngModel)]="ticketCount" min="1" placeholder="1"
+                max="{{ tickets && tickets[0] ? (tickets[0].TotalTickets - tickets[0].BookedTickets) : 100 }}">
+              <button class="btn btn-outline-success custom-button" (click)="increment()">+</button>
+            </p>
+
+          </div>
+          <hr>
+
+          <div>
+            <p>Enter Coupon if any:
+              <input type="text" [(ngModel)]="couponCode">
+              <button class="custom-buttonApply" (click)="applyCoupon()">Apply</button>
+            </p>
+            <p *ngIf="discount > 0">Discount Applied: ₹{{ discount }}</p>
+            <hr>
+
+            <h5>Number of tickets left: {{ tickets && tickets[0] ? (tickets[0].TotalTickets - tickets[0].BookedTickets)
+              : 100 }}</h5>
+            <hr>
+            <div class="user-details">
+              <h3>Your Details:</h3>
+              <form (ngSubmit)="goToPaymentPage()">
+                <label for="userName">Name:</label>
+                <input type="text" id="userName" [(ngModel)]="userName" name="userName" required>
+
+              </form>
+            </div>
+            <hr>
+            <h6>Note:</h6>
+            <ol>
+              <li>Registrations/Tickets once booked cannot be exchanged, cancelled or refunded.</li>
+              <li>In case of Credit/Debit Card bookings, the card and cardholder must be present at the counter.</li>
+            </ol>
+            <button class="custom-buttonX" (click)="goToPaymentPage()">Proceed</button>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
+
+    <!-- Payment Section -->
+    <div class="rightside">
+      <div class="rightsideFlex">
+        <div class="rightsideHeading" *ngIf="bPaymentStatus==true">
+          <h3>Payment Summary:</h3>
+          <hr>
+          <div class="PaymentSummary">
+            <p><strong>Ticket Price:</strong> ₹{{ ticketPrice }}</p>
+            <p><strong>Number of Tickets:</strong> {{ ticketCount }}</p>
+            <p><strong>Discount Applied:</strong> ₹{{ discount }}</p>
+            <p *ngIf="discount === 0">No coupon applied</p>
+          </div>
+          <hr>
+          <p class="orderTotal"><strong>Order Total:</strong> ₹{{ finalPrice }}</p>
+          <hr>
+
+          <!-- 
+        <div class="user-details">
+          <h3>Your Details:</h3>
+          <form (ngSubmit)="goToPaymentPage()">
+            <label for="userName">Name:</label>
+            <input type="text" id="userName" [(ngModel)]="userName" name="userName" required>
+            
+          </form>
+        </div> -->
+          <!-- <div *ngFor="let booking of userBookings" class="user-card">
+          <p><strong>Name:</strong> {{ booking.userName }}</p>
+          <p><strong>Email:</strong> {{ booking.userEmail }}</p>
+          <p><strong>Booking ID:</strong> {{ booking.bookingId }}</p>
+          
+        </div>
+      </div>
+      <div *ngIf="isEditing">
+        <label>Name: <input [(ngModel)]="editedTicket.userName" /></label><br />
+        <label>Email: <input [(ngModel)]="editedTicket.userEmail" /></label><br />
+        <button (click)="saveChanges()">Save</button>
+        <button (click)="toggleEdit()">Cancel</button>
+      </div>  -->
+        </div>
+
+
+        <div *ngIf="bPaymentStatus==true">
+          <h2>Payment</h2>
+          <p class="subtitle">Choose payment method below</p>
+
+          <!-- Payment Method Selection -->
+          <div class="payment-methods">
+            <div class="method-card" [class.active]="selectedMethod() === 'card'" (click)="selectMethod('card')">
+              <a class="sizeOfIcon"><i class="fa-solid fa-credit-card fa-4x"></i><br /><span>Pay with Credit
+                  Card</span></a>
+            </div>
+            <div class="method-card" [class.active]="selectedMethod() === 'GPay'" (click)="selectMethod('GPay')">
+              <a class="sizeOfIcon"><i class="fa-brands fa-google-pay fa-6x"></i><br /><span>Pay with GPay</span></a>
+            </div>
+            <div class="method-card" [class.active]="selectedMethod() === 'netbanking'"
+              (click)="selectMethod('netbanking')">
+              <a class="sizeOfIcon"><i class="fa-solid fa-cash-register fa-4x"></i><br /><span>Net Banking</span></a>
+            </div>
+          </div>
+
+          <!-- Credit Card Form -->
+          <div *ngIf="selectedMethod() === 'card'" class="form-section">
+            <!-- Cardholder's Name -->
+            <h3>Credit/Debit Card Details</h3>
+            <div class="form-container">
+
+              <div class="form-group"> <label for="cardholderName">Cardholder's Name:</label>
+                <input id="cardholderName" type="text" placeholder="John Doe" [(ngModel)]="cardDetails().cardholderName"
+                  name="cardholderName" required pattern="^[a-zA-Z\s]+$" #name="ngModel" />
+                <div *ngIf="name.invalid && name.touched" class="error">
+                  <small *ngIf="name.errors?.['required']">Name is required.</small>
+                  <small *ngIf="name.errors?.['pattern']">Only letters and spaces allowed.</small>
+                </div>
+              </div>
+
+              <!-- Card Number -->
+              <div class="form-group"> <label for="cardNumber">Card Number:</label>
+                <input id="cardNumber" type="text" placeholder="XXXX-XXXX-XXXX-XXXX"
+                  [(ngModel)]="cardDetails().cardNumber" name="cardNumber" required pattern="^\d{16}$" maxlength="16"
+                  #number="ngModel" />
+
+                <div *ngIf="number.invalid && number.touched" class="error">
+                  <small *ngIf="number.errors?.['required']">Card number is required.</small>
+                  <small *ngIf="number.errors?.['pattern']">Must be 16 digits.</small>
+                </div>
+              </div>
+
+              <!-- Exp. Month -->
+              <div class="form-group"> <label for="expMonth">Exp. Month:</label>
+                <input id="expMonth" type="text" placeholder="MM" [(ngModel)]="cardDetails().expMonth" name="expMonth"
+                  required pattern="^(0[1-9]|1[0-2])$" maxlength="2" #month="ngModel" />
+
+                <div *ngIf="month.invalid && month.touched" class="error">
+                  <small>Enter a valid month (01–12).</small>
+                </div>
+              </div>
+
+              <!-- Exp. Year -->
+              <div class="form-group"> <label for="expYear">Exp. Year:</label>
+                <input id="expYear" type="text" placeholder="YY" [(ngModel)]="cardDetails().expYear" name="expYear"
+                  required pattern="^\d{2}$" maxlength="2" #year="ngModel" />
+                <div *ngIf="year.invalid && year.touched" class="error">
+                  <small>Enter a valid year (e.g., 25).</small>
+                </div>
+              </div>
+              <button class="custom-buttonX" type="button" (click)="processPayment($event)">
+                <i *ngIf="processing()" class="fa-solid fa-spinner fa-spin"></i>
+                {{ processing() ? 'Saving...' : 'Pay Now' }}
+              </button>
+            </div>
+          </div>
+
+          <!-- GPay / Netbanking Instructions -->
+          <div *ngIf="selectedMethod() !== 'card'" class="form-section">
+            <p>You have selected <strong>{{ selectedMethod() | titlecase }}</strong>. Follow the instructions on the
+              next
+              page
+              to complete your payment.</p>
+            <button class="custom-buttonX" type="button" (click)="saveBookingDirectly()">
+              <i *ngIf="processing()" class="fa-solid fa-spinner fa-spin"></i>
+              {{ processing() ? 'Saving...' : 'Pay Now' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Confirmation Popup -->
+    <div class="popup-overlay" *ngIf="bDisplayConfirmation==true">
+      <div class="popup-content">
+        <div class="popup-header">
+          <i class="fas fa-check-circle success-icon"></i>
+          <h2>Booking Confirmed!</h2>
+        </div>
+        <div class="popup-body">
+          <p>Your tickets have been successfully booked.</p>
+          <p>Your <strong>Booking ID</strong> is:</p>
+          <div class="booking-id-container">
+            <strong>{{ bookingConfirmation.bookingId}}</strong>
+          </div>
+          <p>Please keep this ID for your reference.</p>
+        </div>
+        <div class="popup-footer">
+          <button class="btn custom-button" (click)="viewTickets()">View My Tickets</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <router-outlet></router-outlet>
 </body>
 
