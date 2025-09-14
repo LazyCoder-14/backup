@@ -269,6 +269,21 @@
       "Format": "Outdoor",
       "Showtime": "7:30 PM",
       "id": "f7dd"
+    },
+    {
+      "EventID": 307,
+      "Name": "Jolly LLB 3",
+      "Category": "Comedy/Drama",
+      "Type": "Movie",
+      "Location": "Mumbai",
+      "Date": "2025-10-01",
+      "OrganizerID": "ORG302",
+      "PosterURL": "jollyllb.jpg",
+      "Tagline": "Justice with a smile.",
+      "Language": "English, Hindi",
+      "Format": "2D",
+      "Showtime": "7:30 PM",
+      "id": "f7e0"
     }
   ],
   "user": [
