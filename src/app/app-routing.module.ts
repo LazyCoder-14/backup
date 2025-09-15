@@ -25,8 +25,11 @@ const routes: Routes = [
   { path: 'profile', component: UserProfileComponent },
   { path: 'notifications', component: NotificationComponent }, // placeholder
   { path: 'movies', component: MoviesComponent },
+  { path: 'movies/:id', component: MoviesComponent },
   { path: 'events', component: EventsComponent },
+  { path: 'events/:id', component: EventsComponent },
   { path: 'sports', component: SportsComponent },
+  { path: 'sports/:id', component: SportsComponent },
   { path: 'admin_side', component: AdminSideComponent },
   { path: 'user-admin', component: UserAdminComponent },
   { path: 'event-admin', component: EventAdminComponent },

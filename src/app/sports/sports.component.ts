@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { EventService } from '../event-service.service';
 import { EventModel } from '../Event';
 import { UserStateService } from '../user-state-service.service';
@@ -18,7 +18,8 @@ export class SportsComponent implements OnInit {
   constructor(
     private eventService: EventService,
     private router: Router,
-    private userStateService: UserStateService
+    private userStateService: UserStateService,
+    private activatedRoute: ActivatedRoute
   ) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation && navigation.extras && navigation.extras.state) {
@@ -32,15 +33,24 @@ export class SportsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!this.selectedSport) {
-      this.eventService.getAllEvents().subscribe({
-        next: (data: EventModel[]) => {
-          this.sportsList = data.filter((event) => event.Type === 'Sports');
-        },
-        error: (err: any) =>
-          console.error('Error fetching sports events:', err),
-      });
-    }
+    this.eventService.getAllEvents().subscribe({
+      next: (data: EventModel[]) => {
+        this.sportsList = data.filter((event) => event.Type === 'Sports');
+
+        // If no sport data from state, check route params
+        if (!this.selectedSport) {
+          this.activatedRoute.paramMap.subscribe((params) => {
+            const sportId = params.get('id');
+            if (sportId) {
+              this.selectedSport = this.sportsList.find(
+                (s) => s.EventID === +sportId
+              );
+            }
+          });
+        }
+      },
+      error: (err: any) => console.error('Error fetching sports events:', err),
+    });
   }
 
   bookTickets(sport: EventModel): void {
@@ -63,6 +73,6 @@ export class SportsComponent implements OnInit {
   }
 
   goToDetails(sport: EventModel): void {
-    this.router.navigate(['/sports'], { state: { sport } });
+    this.router.navigate(['/sports', sport.EventID], { state: { sport } });
   }
 }

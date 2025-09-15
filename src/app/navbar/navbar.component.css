@@ -7,7 +7,6 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
   z-index: 1000;
   padding: 0.4rem 1.5rem;
-  /* Reduced vertical padding */
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -20,7 +19,6 @@
   align-items: center;
   flex-wrap: nowrap;
   gap: 0.5rem;
-  /* Reduced gap for better spacing */
   min-height: 60px;
 }
 

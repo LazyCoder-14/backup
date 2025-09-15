@@ -49,15 +49,19 @@ export class EventDashboardComponent implements OnInit {
     });
   }
   goToMovie(event: EventModel): void {
-    this.router.navigate(['/movies'], { state: { movie: event } });
+    this.router.navigate(['/movies', event.EventID], {
+      state: { movie: event },
+    });
   }
 
   goToEvent(event: EventModel): void {
-    this.router.navigate(['/events'], { state: { event } });
+    this.router.navigate(['/events', event.EventID], { state: { event } });
   }
 
   goToSports(event: EventModel): void {
-    this.router.navigate(['/sports'], { state: { sport: event } });
+    this.router.navigate(['/sports', event.EventID], {
+      state: { sport: event },
+    });
   }
 
   bookTickets(event: EventModel): void {

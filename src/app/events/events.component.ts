@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { EventService } from '../event-service.service';
 import { EventModel } from '../Event';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserStateService } from '../user-state-service.service';
 
 @Component({
@@ -18,7 +18,8 @@ export class EventsComponent {
   constructor(
     private eventService: EventService,
     private router: Router,
-    private userStateService: UserStateService
+    private userStateService: UserStateService,
+    private activatedRoute: ActivatedRoute
   ) {
     const nav = this.router.getCurrentNavigation();
     this.selectedEvent = nav?.extras?.state?.['event'];
@@ -30,15 +31,26 @@ export class EventsComponent {
   }
 
   ngOnInit(): void {
-    if (!this.selectedEvent) {
-      this.eventService.getAllEvents().subscribe({
-        next: (data: EventModel[]) =>
-          (this.eventList = data.filter(
-            (event: EventModel) => event.Type === 'Event'
-          )),
-        error: (err: any) => console.error('Error fetching events:', err),
-      });
-    }
+    this.eventService.getAllEvents().subscribe({
+      next: (data: EventModel[]) => {
+        this.eventList = data.filter(
+          (event: EventModel) => event.Type === 'Event'
+        );
+
+        // If no event data from state, check route params
+        if (!this.selectedEvent) {
+          this.activatedRoute.paramMap.subscribe((params) => {
+            const eventId = params.get('id');
+            if (eventId) {
+              this.selectedEvent = this.eventList.find(
+                (e) => e.EventID === +eventId
+              );
+            }
+          });
+        }
+      },
+      error: (err: any) => console.error('Error fetching events:', err),
+    });
   }
 
   bookTickets(event: EventModel): void {
@@ -61,6 +73,6 @@ export class EventsComponent {
   }
 
   goToDetails(event: EventModel): void {
-    this.router.navigate(['/events'], { state: { event } });
+    this.router.navigate(['/events', event.EventID], { state: { event } });
   }
 }

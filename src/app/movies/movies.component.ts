@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { EventModel } from '../Event';
 import { EventService } from '../event-service.service';
 import { UserStateService } from '../user-state-service.service';
@@ -19,7 +19,8 @@ export class MoviesComponent implements OnInit {
   constructor(
     private router: Router,
     private eventService: EventService,
-    private userStateService: UserStateService
+    private userStateService: UserStateService,
+    private activatedRoute: ActivatedRoute
   ) {
     const nav = this.router.getCurrentNavigation();
     if (nav?.extras?.state) {
@@ -38,11 +39,21 @@ export class MoviesComponent implements OnInit {
         (event: EventModel) => event.Type === 'Movie'
       );
       this.filteredMovies = [...this.allMovies];
+
+      // If no movie data from state, check route params
+      if (!this.movieData) {
+        this.activatedRoute.paramMap.subscribe((params) => {
+          const movieId = params.get('id');
+          if (movieId) {
+            this.movieData = this.allMovies.find((m) => m.EventID === +movieId);
+          }
+        });
+      }
     });
   }
 
   goToDetails(movie: EventModel): void {
-    this.router.navigate(['/movies'], { state: { movie } });
+    this.router.navigate(['/movies', movie.EventID]);
   }
 
   bookTickets(movie: EventModel): void {
