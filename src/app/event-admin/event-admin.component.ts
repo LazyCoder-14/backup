@@ -61,7 +61,22 @@ export class EventAdminComponent {
               Tagline: matchedEvent.Tagline,
               PosterURL: matchedEvent.PosterURL,
             });
-          }
+          }else {
+          this.addOrEditForm.patchValue({
+           
+      Name: '',
+      Category: '',
+      Location: '',
+      Showtime: '',
+      Date: '',
+      Type: '',
+      OrganizerID: '',
+      Format: '',
+      Language: '',
+      Tagline: '',
+      PosterURL: ''
+      });
+    }
         }
       });
   }

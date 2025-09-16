@@ -365,6 +365,16 @@
       "password": "Sahil@101",
       "isAdmin": false,
       "isLoggedIn": false
+    },
+    {
+      "id": "606f",
+      "userId": "KC_01",
+      "name": "Kartik",
+      "email": "chilanakc@gmail.com",
+      "contactNumber": "0987678976",
+      "password": "123456",
+      "isAdmin": false,
+      "isLoggedIn": false
     }
   ],
   "adminUser": [
@@ -379,7 +389,7 @@
       "isAdmin": true
     }
   ],
-  "alerts": [
+  "notifications": [
     {
       "id": "1",
       "type": "success",
@@ -396,26 +406,6 @@
       "message": "Event ticket cancelled !!"
     }
   ],
-  "notifications": [
-    {
-      "id": "1",
-      "title": "Upcoming Event",
-      "content": "Concert is at 10 PM.",
-      "imageUrl": "p3.jpg"
-    },
-    {
-      "id": "2",
-      "title": "Booking Status",
-      "content": "Details sent to your email.",
-      "imageUrl": "p4.jpg"
-    },
-    {
-      "id": "3",
-      "title": "Set Reminders",
-      "content": "Set Up the reminder.",
-      "imageUrl": "b1.jpg"
-    }
-  ],
   "Ticket": [
     {
       "TicketID": 1,
@@ -426,7 +416,7 @@
       "EventName": "Concert",
       "TotalTickets": 100,
       "image": "C:/Evontiq/Event-Management-System/public/vash.jpg",
-      "BookedTickets": 34,
+      "BookedTickets": 35,
       "Price": 2000,
       "Coupons": [
         {
@@ -785,6 +775,19 @@
           "paymentStatus": "Success",
           "bookingDate": "2025-09-14T08:17:16.624Z",
           "dateOfBooking": "2025-09-14T08:17:16.625Z"
+        },
+        {
+          "bookingId": "EVT-082690-3184",
+          "userName": "Kartik",
+          "userEmail": "chilanakc@gmail.com",
+          "eventName": "The Bengal Files",
+          "eventId": "203",
+          "ticketCount": 1,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-16T06:44:42.690Z",
+          "dateOfBooking": "2025-09-16T06:44:42.691Z"
         }
       ]
     }
