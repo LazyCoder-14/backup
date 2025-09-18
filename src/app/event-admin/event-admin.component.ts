@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Event from '../event-admin';
 import { Router } from '@angular/router';
 import { EventAdminService } from '../event-admin.service';
@@ -25,30 +25,26 @@ export class EventAdminComponent {
     private router: Router
   ) {
     this.addOrEditForm = this.fb.group({
-      id: [''],
-      Name: [''],
-      Category: [''],
-      Location: [''],
-      Showtime: [''],
-      Date: [''],
-      Type: [''],
-      OrganizerID: [''],
-      Format: [''],
-      Language: [''],
-      Tagline: [''],
-      PosterURL: [''],
+      id: ['', Validators.required],
+      Name: ['', Validators.required],
+      Category: ['', Validators.required],
+      Location: ['', Validators.required],
+      Showtime: ['', Validators.required],
+      Date: ['', Validators.required],
+      Type: ['', Validators.required],
+      OrganizerID: ['', Validators.required],
+      Format: ['', Validators.required],
+      Language: ['', Validators.required],
+      Tagline: ['', Validators.required],
+      PosterURL: ['', Validators.required]
     });
 
-    this.addOrEditForm
-      .get('id')
-      ?.valueChanges.subscribe((enteredId: string) => {
+    this.addOrEditForm.get('id')?.valueChanges.subscribe((enteredId: string) => {
         if (this.bDisplayEditForm && enteredId) {
-          const matchedEvent = this.eventList?.find(
-            (event) => event.id === enteredId
-          );
+          const matchedEvent = this.eventList?.find(event => event.id === enteredId);
           if (matchedEvent) {
             this.addOrEditForm.patchValue({
-              id: matchedEvent.id,
+              
               Name: matchedEvent.Name,
               Category: matchedEvent.Category,
               Location: matchedEvent.Location,
@@ -59,7 +55,7 @@ export class EventAdminComponent {
               Format: matchedEvent.Format,
               Language: matchedEvent.Language,
               Tagline: matchedEvent.Tagline,
-              PosterURL: matchedEvent.PosterURL,
+              PosterURL: matchedEvent.PosterURL
             });
           }else {
           this.addOrEditForm.patchValue({
@@ -118,6 +114,7 @@ export class EventAdminComponent {
     return this.addOrEditForm.get('Type');
   }
 
+ 
   getDataFromService() {
     this.bDisplayEventTable = !this.bDisplayEventTable;
     if (this.bDisplayEventTable) {
@@ -150,7 +147,7 @@ export class EventAdminComponent {
         Format: '',
         Language: '',
         Tagline: '',
-        PosterURL: '',
+        PosterURL: ''
       });
     }
   }
@@ -233,8 +230,7 @@ export class EventAdminComponent {
     this.eventadminService.updateRecord(eventObj).subscribe({
       next: () => {
         alert('Event Details Updated !');
-        this.getDataFromService();
-      },
+        this.getDataFromService();},
       error: (err) => alert(JSON.stringify(err)),
       complete: () => console.log('Event Details Updated!'),
     });
