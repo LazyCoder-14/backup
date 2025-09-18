@@ -7,11 +7,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-
-
-
-
-
 <body>
   <div class="carouselSection">
     <div class="carousel-container">
@@ -111,7 +106,7 @@
     <!-- Payment Section -->
     <div class="rightside">
       <div class="rightsideFlex">
-        <div class="rightsideHeading" *ngIf="bPaymentStatus==true">
+        <div class="rightsideHeading" >
           <h3>Payment Summary:</h3>
           <hr>
           <div class="PaymentSummary">
@@ -149,22 +144,22 @@
         </div>
 
 
-        <div *ngIf="bPaymentStatus==true">
+        <div>
           <h2>Payment</h2>
           <p class="subtitle">Choose payment method below</p>
 
           <!-- Payment Method Selection -->
           <div class="payment-methods">
             <div class="method-card" [class.active]="selectedMethod() === 'card'" (click)="selectMethod('card')">
-              <a class="sizeOfIcon"><i class="fa-solid fa-credit-card fa-4x"></i><br /><span>Pay with Credit
+              <a class="sizeOfIcon"><i class="fa-solid fa-credit-card fa-4x"></i><br/><span>Pay with Credit
                   Card</span></a>
             </div>
             <div class="method-card" [class.active]="selectedMethod() === 'GPay'" (click)="selectMethod('GPay')">
-              <a class="sizeOfIcon"><i class="fa-brands fa-google-pay fa-6x"></i><br /><span>Pay with GPay</span></a>
+              <a class="sizeOfIcon"><i class="fa-brands fa-google-pay fa-6x"></i><br/><span>Pay with GPay</span></a>
             </div>
             <div class="method-card" [class.active]="selectedMethod() === 'netbanking'"
               (click)="selectMethod('netbanking')">
-              <a class="sizeOfIcon"><i class="fa-solid fa-cash-register fa-4x"></i><br /><span>Net Banking</span></a>
+              <a class="sizeOfIcon"><i class="fa-solid fa-cash-register fa-4x"></i><br/><span>Net Banking</span></a>
             </div>
           </div>
 
@@ -220,7 +215,7 @@
             </div>
           </div>
 
-          <!-- GPay / Netbanking Instructions -->
+          <!-- GPay / Netbanking Instructions --><div *ngIf="bDisplay==true">
           <div *ngIf="selectedMethod() !== 'card'" class="form-section">
             <p>You have selected <strong>{{ selectedMethod() | titlecase }}</strong>. Follow the instructions on the
               next
@@ -230,7 +225,7 @@
               <i *ngIf="processing()" class="fa-solid fa-spinner fa-spin"></i>
               {{ processing() ? 'Saving...' : 'Pay Now' }}
             </button>
-          </div>
+          </div></div>
         </div>
       </div>
     </div>
@@ -250,14 +245,11 @@
           <p>Please keep this ID for your reference.</p>
         </div>
         <div class="popup-footer">
-          <button class="btn custom-button" (click)="viewTickets()">View My Tickets</button>
+          <button class="btn custom-button" (click)="closePopup()">View My Tickets</button>
         </div>
       </div>
     </div>
   </div>
-
-
-
   <router-outlet></router-outlet>
 </body>
 

@@ -48,6 +48,8 @@ export class LoginService {
   }
 
   checkAdmin(email: string, password: string): Observable<any[]> {
-    return this.login.get<any[]>(`http://localhost:3000/adminUser?email=${email}&password=${password}`);
+    return this.login.get<any[]>(
+      `http://localhost:3000/adminUser?email=${email}&password=${password}`
+    );
   }
 }
