@@ -269,21 +269,6 @@
       "Format": "Outdoor",
       "Showtime": "7:30 PM",
       "id": "f7dd"
-    },
-    {
-      "EventID": 307,
-      "Name": "Jolly LLB 3",
-      "Category": "Comedy/Drama",
-      "Type": "Movie",
-      "Location": "Mumbai",
-      "Date": "2025-10-01",
-      "OrganizerID": "ORG302",
-      "PosterURL": "jollyllb.jpg",
-      "Tagline": "Justice with a smile.",
-      "Language": "English, Hindi",
-      "Format": "2D",
-      "Showtime": "7:30 PM",
-      "id": "f7e0"
     }
   ],
   "user": [
@@ -416,7 +401,7 @@
       "EventName": "Concert",
       "TotalTickets": 100,
       "image": "C:/Evontiq/Event-Management-System/public/vash.jpg",
-      "BookedTickets": 35,
+      "BookedTickets": 37,
       "Price": 2000,
       "Coupons": [
         {
@@ -788,6 +773,19 @@
           "paymentStatus": "Success",
           "bookingDate": "2025-09-16T06:44:42.690Z",
           "dateOfBooking": "2025-09-16T06:44:42.691Z"
+        },
+        {
+          "bookingId": "EVT-457270-5974",
+          "userName": "sahil",
+          "userEmail": "sahil@gmail.com",
+          "eventName": "Vash Level 2",
+          "eventId": "201",
+          "ticketCount": 2,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-17T15:54:17.270Z",
+          "dateOfBooking": "2025-09-17T15:54:17.271Z"
         }
       ]
     }

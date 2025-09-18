@@ -1,28 +1,27 @@
 .footer {
   background: linear-gradient(90deg, #2600e6e7, #02b4e6);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.4);
-  padding: 0.2rem 0; /* reduced vertical padding */
-  font-size: 0.75rem; /* slightly smaller text */
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+  padding: 0.1rem 0;
+  font-size: 0.7rem;
   margin-top: auto;
-  line-height: 1.2; /* tighter line spacing */
+  line-height: 1.1;
 }
 
-
 .footer-inner {
-  max-width: 80vw; /* 80% of the viewport width */
+  max-width: 78vw;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 0.8rem;
 }
 
 .footer-brand {
   font-weight: 500;
-  font-size: 0.85rem; /* reduced from 1rem */
+  font-size: 0.75rem;
   animation: pop 2s infinite ease-in-out;
 }
 
 .footer-links a {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   transition: color 0.3s ease;
 }
 
@@ -30,4 +29,3 @@
   color: #ff6a00;
   text-decoration: underline;
 }
-

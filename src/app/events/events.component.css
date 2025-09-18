@@ -58,17 +58,18 @@
 
 .booking-actions {
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 
 .trailer-btn,
 .showtime-btn,
 .book-btn,
 .rating-btn {
-  padding: 10px 20px;
+  padding: 2px 8px;
   border: none;
-  border-radius: 8px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -205,10 +206,10 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
+  padding: 8px 10px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 500;
   transition: all 0.3s ease;
   width: 100%;
