@@ -54,6 +54,7 @@ export class BookingComponent implements OnInit {
   bookingConfirmation: any = null;
   ticketData = signal<Ticket | null>(null);
   bookingDate: Date = new Date();
+  bDisplay:boolean=false;
   @Input() event: any; //ye event details lega sahil wale component se
 
   tickets: Ticket[] = [];
@@ -122,12 +123,12 @@ export class BookingComponent implements OnInit {
     cardNumber: '',
     expMonth: '',
     expYear: '',
-    cvc: '',
   });
   selectMethod(method: string): void {
     this.selectedMethod.set(method);
     this.paymentStatus.set(null); // Clear status message on method change
     console.log(`Selected payment method: ${method}`);
+    this.bDisplay=true;
   }
 
   processPayment(event?: Event): void {
@@ -161,7 +162,7 @@ export class BookingComponent implements OnInit {
       ticketPrice: this.ticketPrice,
       finalPrice: this.finalPrice,
       paymentMethod: this.selectedMethod(),
-      paymentStatus: 'Success',
+      paymentStatus: 'Confirm',
       bookingDate: new Date().toISOString(),
       dateOfBooking: new Date().toISOString(),
     };
@@ -186,8 +187,10 @@ export class BookingComponent implements OnInit {
     }
   }
   closePopup(): void {
+    
     // Remove automatic redirect - user needs to click "View My Tickets" button
-    this.bDisplayConfirmation = false;
+    this.bDisplayConfirmation = true;
+    this.route.navigate(['/viewTickets']);
   }
 
   viewTickets(): void {
@@ -275,7 +278,6 @@ export class BookingComponent implements OnInit {
     const cardNumberRegex = /^[0-9]{16}$/;
     const expDateRegex = /^(0[1-9]|1[0-2])$/;
     const expYearRegex = /^[0-9]{2}$/;
-    const cvcRegex = /^[0-9]{3,4}$/;
     const currentYear = new Date().getFullYear() % 100;
     const currentMonth = new Date().getMonth() + 1;
 
@@ -303,10 +305,6 @@ export class BookingComponent implements OnInit {
       console.warn('Expiration date is in the past.');
       return false;
     }
-    if (!cvcRegex.test(details.cvc)) {
-      console.warn('Invalid CVC format.');
-      return false;
-    }
     return true;
   }
   bDisplayConfirmation: boolean = false;
@@ -329,6 +327,7 @@ export class BookingComponent implements OnInit {
       });
   }
   saveBookingDirectly(): void {
+     
     if (!this.userName || this.ticketCount < 1) {
       alert('Please enter your name and select at least one ticket.');
       return;
@@ -345,9 +344,9 @@ export class BookingComponent implements OnInit {
       ticketCount: this.ticketCount,
       ticketPrice: this.ticketPrice,
       finalPrice: this.finalPrice,
-      paymentStatus: 'Success',
+      paymentStatus: 'Confirm',
       bookingDate: new Date().toISOString(),
-      dateOfBooking: new Date().toISOString(),
+      // dateOfBooking: new Date().toISOString(),
     };
 
     const ticketId = this.tickets[0]?.EventID;
@@ -361,7 +360,7 @@ export class BookingComponent implements OnInit {
       next: () => {
         this.processing.set(false);
         this.bookingConfirmation = booking;
-        this.bDisplayConfirmation = true;
+        this.bDisplayConfirmation = true; 
       },
       error: (err) => {
         this.processing.set(false);

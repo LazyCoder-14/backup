@@ -18,13 +18,13 @@ export class NotificationComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get<any[]>('http://localhost:3000/alerts').subscribe(data => {
+    this.http.get<any[]>('http://localhost:3000/notifications').subscribe(data => {
       this.alerts = data;
     });
 
-    this.http.get<any[]>('http://localhost:3000/notifications').subscribe(data => {
-      this.notifications = data;
-    });
+    // this.http.get<any[]>('http://localhost:3000/notifications').subscribe(data => {
+    //   this.notifications = data;
+    // });
   }
 
   openModal(notification: any) {

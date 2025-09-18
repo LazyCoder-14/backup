@@ -40,12 +40,11 @@ export class TicketXService {
     return this.http.get(this.strUrl);
   }
   getAllTickets(): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>('http://localhost:3000/Ticket');
+    return this.http.get<Ticket[]>(this.strUrl);
   }
   updateBookingStatus(bookingId: string, booking: any): Observable<any> {
-    return this.http.put(`http://localhost:3000/bookings/${bookingId}`, booking);
+    return this.http.put(`${this.strUrl}/${bookingId}`, booking);
   }
-
   getTicket(): Observable<any> {
     return this.http.get<any>(this.strUrl);
   }
@@ -53,20 +52,19 @@ export class TicketXService {
     return this.http.get<any>(this.strUrl); // adjust endpoint
   }
   addBooking(ticketId: number, booking: any): Observable<any> {
-    return this.http.get<any>(`http://localhost:3000/Ticket/${ticketId}`).pipe(
+    return this.http.get<any>(`${this.strUrl}/${ticketId}`).pipe(
       switchMap(ticket => {
         const updatedTicket = {
           ...ticket,
           Bookings: [...(ticket.Bookings || []), booking],
           BookedTickets: (ticket.BookedTickets || 0) + booking.ticketCount
         };
-
-        return this.http.put(`http://localhost:3000/Ticket/${ticketId}`, updatedTicket);
+        return this.http.put(`${this.strUrl}/${ticketId}`, updatedTicket);
       })
     );
   }
   cancelBooking(bookingId: string): Observable<any> {
-  return this.http.get<any>('http://localhost:3000/Ticket').pipe(
+  return this.http.get<any>(this.strUrl).pipe(
     switchMap((tickets: any[]) => {
       // Find the ticket that contains the booking
       const ticket = tickets.find(t =>
@@ -101,7 +99,7 @@ export class TicketXService {
         Bookings: updatedBookings
       };
 
-      return this.http.patch(`http://localhost:3000/Ticket/${ticket.id}`, updatedTicket);
+      return this.http.patch(`${this.strUrl}/${ticket.id}`, updatedTicket);
     })
   );
 }
