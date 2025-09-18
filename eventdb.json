@@ -375,6 +375,36 @@
       "password": "123456",
       "isAdmin": false,
       "isLoggedIn": false
+    },
+    {
+      "id": "KC_01",
+      "name": "KC",
+      "email": "kc@gmail.com",
+      "contactNumber": 9090909090
+    },
+    {
+      "id": "VR_02",
+      "name": "VR",
+      "email": "vr@gmail.com",
+      "contactNumber": 9898989898
+    },
+    {
+      "id": "NC_03",
+      "name": "Nikhil Chuahan",
+      "email": "nc@gmail.com",
+      "contactNumber": 8989898980
+    },
+    {
+      "id": "SS_04",
+      "name": "SS",
+      "email": "ss@gmail.com",
+      "contactNumber": 7878787878
+    },
+    {
+      "id": "SK_05",
+      "name": "SK",
+      "email": "sk@gmail.com",
+      "contactNumber": 9879879879
     }
   ],
   "adminUser": [
@@ -416,7 +446,7 @@
       "EventName": "Concert",
       "TotalTickets": 100,
       "image": "C:/Evontiq/Event-Management-System/public/vash.jpg",
-      "BookedTickets": 35,
+      "BookedTickets": 36,
       "Price": 2000,
       "Coupons": [
         {
@@ -788,6 +818,19 @@
           "paymentStatus": "Success",
           "bookingDate": "2025-09-16T06:44:42.690Z",
           "dateOfBooking": "2025-09-16T06:44:42.691Z"
+        },
+        {
+          "bookingId": "EVT-890552-2500",
+          "userName": "Administrator",
+          "userEmail": "admin@gmail.com",
+          "eventName": "Baaghi 4",
+          "eventId": "202",
+          "ticketCount": 1,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Success",
+          "bookingDate": "2025-09-16T08:21:30.552Z",
+          "dateOfBooking": "2025-09-16T08:21:30.552Z"
         }
       ]
     }

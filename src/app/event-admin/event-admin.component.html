@@ -62,9 +62,15 @@
                      
 
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="eventType" placeholder="Type" formControlName="Type">
-                    <label for="eventType">Type</label>
-                  </div></div>
+                  <select class="form-select" id="eventType" formControlName="Type">
+                  <option value="" disabled selected>Select Type</option>
+                  <option value="Movie">Movie</option>
+                  <option value="Event">Event</option>
+                  <option value="Sports">Sports</option>
+                  </select>
+                  <label for="eventType">Type</label>
+                   </div></div>
+
                   
 
                 <div class="col-md-6">
@@ -154,8 +160,13 @@
                   </div></div>
                   <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="editEventType" placeholder="Type" formControlName="Type">
-                    <label for="Type">Type</label>
+                  <select class="form-select" id="eventType" formControlName="Type">
+                  <option value="" disabled selected>Select Type</option>
+                  <option value="Movie">Movie</option>
+                  <option value="Event">Event</option>
+                  <option value="Sports">Sports</option>
+                  </select>
+                  <label for="eventType">Type</label>
                   </div></div>
 
                 <div class="col-md-6">

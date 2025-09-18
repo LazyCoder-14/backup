@@ -21,7 +21,7 @@ export class UserAdminComponent {
 
   constructor(
     private fb: FormBuilder,
-    @Inject(UserAdminService) private useradminService: UserAdminService,
+    private useradminService: UserAdminService,
     private router: Router
   ) {
     this.addOrEditForm = this.fb.group({
@@ -34,13 +34,9 @@ export class UserAdminComponent {
       ],
     });
 
-    this.addOrEditForm
-      .get('id')
-      ?.valueChanges.subscribe((enteredId: string) => {
+    this.addOrEditForm.get('id')?.valueChanges.subscribe((enteredId: string) => {
         if (this.bDisplayEditForm && enteredId) {
-          const matchedUser = this.userList?.find(
-            (user) => user.id === enteredId
-          );
+          const matchedUser = this.userList?.find(user => user.id === enteredId);
           if (matchedUser) {
             this.addOrEditForm.patchValue({
               name: matchedUser.name,
@@ -87,6 +83,7 @@ export class UserAdminComponent {
       this.filteredUserList = [];
     }
   }
+
 
   displayAddForm() {
     this.bDisplayInsertRecordForm = !this.bDisplayInsertRecordForm;

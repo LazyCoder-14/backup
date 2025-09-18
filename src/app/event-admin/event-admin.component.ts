@@ -39,16 +39,12 @@ export class EventAdminComponent {
       PosterURL: [''],
     });
 
-    this.addOrEditForm
-      .get('id')
-      ?.valueChanges.subscribe((enteredId: string) => {
+    this.addOrEditForm.get('id')?.valueChanges.subscribe((enteredId: string) => {
         if (this.bDisplayEditForm && enteredId) {
-          const matchedEvent = this.eventList?.find(
-            (event) => event.id === enteredId
-          );
+          const matchedEvent = this.eventList?.find(event => event.id === enteredId);
           if (matchedEvent) {
             this.addOrEditForm.patchValue({
-              id: matchedEvent.id,
+              
               Name: matchedEvent.Name,
               Category: matchedEvent.Category,
               Location: matchedEvent.Location,
@@ -59,7 +55,7 @@ export class EventAdminComponent {
               Format: matchedEvent.Format,
               Language: matchedEvent.Language,
               Tagline: matchedEvent.Tagline,
-              PosterURL: matchedEvent.PosterURL,
+              PosterURL: matchedEvent.PosterURL
             });
           }else {
           this.addOrEditForm.patchValue({
@@ -118,6 +114,7 @@ export class EventAdminComponent {
     return this.addOrEditForm.get('Type');
   }
 
+ 
   getDataFromService() {
     this.bDisplayEventTable = !this.bDisplayEventTable;
     if (this.bDisplayEventTable) {
@@ -150,7 +147,7 @@ export class EventAdminComponent {
         Format: '',
         Language: '',
         Tagline: '',
-        PosterURL: '',
+        PosterURL: ''
       });
     }
   }
@@ -233,8 +230,7 @@ export class EventAdminComponent {
     this.eventadminService.updateRecord(eventObj).subscribe({
       next: () => {
         alert('Event Details Updated !');
-        this.getDataFromService();
-      },
+        this.getDataFromService();},
       error: (err) => alert(JSON.stringify(err)),
       complete: () => console.log('Event Details Updated!'),
     });
