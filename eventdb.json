@@ -450,7 +450,7 @@
       "EventName": "Concert",
       "TotalTickets": 100,
       "image": "C:/Evontiq/Event-Management-System/public/vash.jpg",
-      "BookedTickets": 35,
+      "BookedTickets": 39,
       "Price": 2000,
       "Coupons": [
         {
@@ -806,7 +806,7 @@
           "ticketCount": 2,
           "ticketPrice": 2000,
           "finalPrice": 2000,
-          "paymentStatus": "Success",
+          "paymentStatus": "cancelled",
           "bookingDate": "2025-09-14T08:17:16.624Z",
           "dateOfBooking": "2025-09-14T08:17:16.625Z"
         },
@@ -1397,6 +1397,68 @@
           "finalPrice": 2000,
           "paymentStatus": "cancelled",
           "bookingDate": "2025-09-18T10:02:09.403Z"
+        },
+        {
+          "bookingId": "EVT-286404-7006",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "War 2",
+          "eventId": "205",
+          "ticketCount": 2,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Confirm",
+          "bookingDate": "2025-09-18T10:44:46.404Z"
+        },
+        {
+          "bookingId": "EVT-298479-4108",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "War 2",
+          "eventId": "205",
+          "ticketCount": 1,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Confirm",
+          "bookingDate": "2025-09-18T10:44:58.479Z"
+        },
+        {
+          "bookingId": "EVT-920313-4528",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "War 2",
+          "eventId": "205",
+          "ticketCount": 1,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Confirm",
+          "bookingDate": "2025-09-18T10:55:20.313Z"
+        },
+        {
+          "bookingId": "EVT-459619-9619",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "Baaghi 4",
+          "eventId": "202",
+          "ticketCount": 1,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentMethod": "card",
+          "paymentStatus": "Confirm",
+          "bookingDate": "2025-09-18T11:04:19.619Z",
+          "dateOfBooking": "2025-09-18T11:04:19.619Z"
+        },
+        {
+          "bookingId": "EVT-509893-9932",
+          "userName": "Nikhil Singh Chauhan",
+          "userEmail": "nikhilchauhan791@gmail.com",
+          "eventName": "DEMON SLAYER KIMETS",
+          "eventId": "206",
+          "ticketCount": 1,
+          "ticketPrice": 2000,
+          "finalPrice": 2000,
+          "paymentStatus": "Confirm",
+          "bookingDate": "2025-09-18T11:05:09.893Z"
         }
       ]
     }
