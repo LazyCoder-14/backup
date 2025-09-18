@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Event from '../event-admin';
 import { Router } from '@angular/router';
 import { EventAdminService } from '../event-admin.service';
@@ -25,18 +25,18 @@ export class EventAdminComponent {
     private router: Router
   ) {
     this.addOrEditForm = this.fb.group({
-      id: [''],
-      Name: [''],
-      Category: [''],
-      Location: [''],
-      Showtime: [''],
-      Date: [''],
-      Type: [''],
-      OrganizerID: [''],
-      Format: [''],
-      Language: [''],
-      Tagline: [''],
-      PosterURL: [''],
+      id: ['', Validators.required],
+      Name: ['', Validators.required],
+      Category: ['', Validators.required],
+      Location: ['', Validators.required],
+      Showtime: ['', Validators.required],
+      Date: ['', Validators.required],
+      Type: ['', Validators.required],
+      OrganizerID: ['', Validators.required],
+      Format: ['', Validators.required],
+      Language: ['', Validators.required],
+      Tagline: ['', Validators.required],
+      PosterURL: ['', Validators.required]
     });
 
     this.addOrEditForm.get('id')?.valueChanges.subscribe((enteredId: string) => {
